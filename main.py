@@ -1,8 +1,5 @@
 # QuickFunctions
 
-## Find all rows with NANs in a dataframe
-## run nans, then whenever you need to check for nans
-## do the 2nd line
 # show the NaN rows in a df
 nans = lambda df: df[df.isnull().any(axis=1)]
 nans(your_df_name_here)
