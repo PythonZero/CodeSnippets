@@ -23,6 +23,13 @@ x = f'your name is {name}'
 # Find rows in 1 df not in another df
 pd.merge(df1,df2, how='outer', indicator=True) 
 
+#Logging
+logging.basicConfig(filename=r"path/to/logfile.log",
+                    level=logging.DEBUG,
+                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+LOGGER = logging.getLogger('logfilename')
+LOGGER.debug('Logger ready')
+
 # Show more numpy
 np.set_printoptions(edgeitems=10) 
 np.core.arrayprint._line_width = 80 # how long each line is
