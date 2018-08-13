@@ -30,6 +30,11 @@ logging.basicConfig(filename=r"path/to/logfile.log",
 LOGGER = logging.getLogger('logfilename')
 LOGGER.debug('Logger ready')
 
+#Logging2
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+
 # Show more numpy
 np.set_printoptions(edgeitems=10) 
 np.core.arrayprint._line_width = 80 # how long each line is
