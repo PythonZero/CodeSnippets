@@ -38,3 +38,8 @@ logger.addHandler(logging.StreamHandler())
 # Show more numpy
 np.set_printoptions(edgeitems=10) 
 np.core.arrayprint._line_width = 80 # how long each line is
+
+#Add dash .iplot() to a dataframe
+import cufflinks as cf
+cf.set_config_file(offline=True, world_readable=False )
+df.iplot()
