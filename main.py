@@ -43,3 +43,6 @@ np.core.arrayprint._line_width = 80 # how long each line is
 import cufflinks as cf
 cf.set_config_file(offline=True, world_readable=False )
 df.iplot()
+
+# Remove time from datetime
+TODAY = datetime.today().replace(hour=0, minute=0, second=0, microsecond=0)
