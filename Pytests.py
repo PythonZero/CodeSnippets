@@ -19,12 +19,18 @@ def test_add_two_numbers(monkeypatch):
     
 # CapSys or capfd (Capture the print)
 
-def test_print_10(capsys): # or replace capsys w/capfd - capfd also captures libraries & subprocesses
+def test_print_10(capsys):
+    print("10")
+    out, err = capsys.readouterr()
+    assert '10' in out
+    
+
+def test_print_10(capfd): # or replace capsys w/capfd - capfd also captures libraries & subprocesses
     print("10")
     sys.stderr.write("20")
-    out, err = capsys.readouterr()  # readouterr captures all prints till now. (then resets it)
+    out, err = capfd.readouterr()  # readouterr captures all prints till now. (then resets it)
     assert '10\n' == out # prints go to out
     assert '20' == err # sys.stderr goes to err
     print("30")
-    out, err = capsys.readouterr()
+    out, err = capfd.readouterr()
     assert '30\n' == out
