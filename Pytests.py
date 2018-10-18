@@ -15,3 +15,13 @@ def test_add_two_numbers(monkeypatch):
     monkeypatch.setattr('BasePath.Module.SubModule.B.bar',  # < -- IMPORTANT, you load it from B.py not A.py!!!!!!!
     new_bar)
     print(add_two_numbers(3)) # Prints 'Patched' & Outputs = 13
+
+    
+# CapSys (Capture the print)
+
+def test_print_10(capsys):
+    print(10)
+    sys.stderr.write("20")
+    out, err = capsys.readouterr()
+    assert '10' in out # prints go to out
+    assert '20' in err # stderr goes to err
