@@ -31,6 +31,10 @@ logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
 
+#Logging3
+logger = logging.root # WORKS
+logger = logging.getLogger('root') # DOES NOT WORK
+
 # Show more numpy
 np.set_printoptions(edgeitems=10) 
 np.core.arrayprint._line_width = 80 # how long each line is
