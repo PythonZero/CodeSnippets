@@ -31,7 +31,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
 
-#Logging3
+#Logging3 - Get all logs
 logger = logging.root # WORKS
 logger = logging.getLogger('root') # DOES NOT WORK
 
