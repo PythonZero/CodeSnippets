@@ -33,7 +33,7 @@ logger.addHandler(logging.StreamHandler())
 
 #Logging3 - Get all logs
 logger = logging.root # WORKS
-logger = logging.getLogger('root') # DOES NOT WORK
+logger = logging.getLogger('root') # DOES NOT WORK as you can't access the root logger from getLogger
 
 # Show more numpy
 np.set_printoptions(edgeitems=10) 
