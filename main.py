@@ -16,10 +16,6 @@ path = r'C:/my/path/goes/here' # use your path
 all_files = glob.glob(os.path.join(path, "*.csv"))     # advisable to use os.path.join as this makes concatenation OS independent
 df_from_each_file = [pd.read_csv(f) for f in all_files]
 
-# Format strings inside
-name = 'John'
-x = f'your name is {name}'
-
 # Find rows in 1 df not in another df
 pd.merge(df1,df2, how='outer', indicator=True) 
 
