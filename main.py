@@ -35,8 +35,10 @@ logger.addHandler(logging.StreamHandler())
 logger = logging.root # WORKS
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
-
 logger = logging.getLogger('root') # DOES NOT WORK as you can't access the root logger from getLogger
+
+#Silencing Loggers:
+logging.getLogger("requests").setLevel(logging.WARNING) # or paramiko, or urllib3 (whatever library).
 
 # Show more numpy
 np.set_printoptions(edgeitems=10) 
