@@ -27,12 +27,15 @@ LOGGER = logging.getLogger('logfilename')
 LOGGER.debug('Logger ready')
 
 #Logging2
-logger = logging.getLogger()
+logger = logging.getLogger() # or getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
 
 #Logging3 - Get all logs
 logger = logging.root # WORKS
+logger.setLevel(logging.DEBUG)
+logger.addHandler(logging.StreamHandler())
+
 logger = logging.getLogger('root') # DOES NOT WORK as you can't access the root logger from getLogger
 
 # Show more numpy
