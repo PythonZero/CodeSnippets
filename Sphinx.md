@@ -17,7 +17,7 @@
         - `-f` = force (overwrites existing files)
         - `-o "docs\rst"` = output location (creates an rst folder containing all the reStructuredText files of our code)
         - `.` = the location of our code
-7) `docs\make.bat clean` #optional (deletes all the files in the _build folder)
+7) `docs\make.bat clean` (optional)
 8) `docs\make.bat html`
 
 ## Extra settings
