@@ -27,5 +27,5 @@ add at the bottom of the code `add_module_names = False` - replaces `project_nam
 ## To re-update the documentation:
 
 1) `sphinx-apidoc -f -o "docs\rst" .`
-2) `docs\make.bat clean` (optional, but good practice, removes redundant files)
+2) `docs\make.bat clean`
 3) `docs\make.bat html`
