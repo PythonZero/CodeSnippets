@@ -22,7 +22,7 @@
 
 ## Extra settings
 In `conf.py`:
-add at the bottom of the code `add_module_names = False` - gets rid of `project_name.module.submodule.functionname` with `functionname`
+add at the bottom of the code `add_module_names = False` - replaces `project_name.module.submodule.functionname` with `functionname`
 
 ## To re-update the documentation:
 
