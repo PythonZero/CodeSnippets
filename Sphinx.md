@@ -10,7 +10,7 @@
         - `sys.path.insert(0, (os.path.join(__file__, '../')))`  
         - (this is the location where autodocs looks for the python code).
 4) Can create the skeleton (check if everything worked correctly) by `docs\make.bat html` 
-5) Can then delete it by `docs\make.bat clean` - removes everything in the _build
+5) Can then delete it by `docs\make.bat clean` - removes everything in the `_build` folder
 6) Autogenerate the sphynx code from your codebase:
     - `sphinx-apidoc -f -o "docs\rst" .`
         - `sphinx-apidoc` = the code generatr
