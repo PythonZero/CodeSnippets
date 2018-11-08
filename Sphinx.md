@@ -1,5 +1,6 @@
 # How to use Sphinx - Auto Documentation
 
+
 1) `cd` into your python project path
 2) `sphinx-quickstart docs` (where `docs` is the folder location sphinx will be created in`
      - use all the default settings, except for the modules, use `autodoc` and whichever ones you want
@@ -16,8 +17,15 @@
         - `-f` = force (overwrites existing files)
         - `-o "docs\rst"` = output location (creates an rst folder containing all the reStructuredText files of our code)
         - `.` = the location of our code
-7) `docs\make.bat clean`
+7) `docs\make.bat clean` #optional
 8) `docs\make.bat html`
 
+## Extra settings
 In `conf.py`:
 add at the bottom of the code `add_module_names = False` - gets rid of `project_name.module.submodule.functionname` with `functionname`
+
+## To re-update the documentation:
+
+1) `sphinx-apidoc -f -o "docs\rst" .`
+2) `docs\make.bat clean`
+3) `docs\make.bat html`
