@@ -29,7 +29,8 @@ def parse_raw_df(df: pd.DataFrame, raw_df: pd.DataFrame,  if_contains: str,
     :param: then_extract_from_col: data to extract from column
     :param: column_name: The column name to call the data
     """
-    df[column_name] = df[df[in_column] == if_contains][then_extract_from_col]
+    df[column_name] = raw_df[raw_df[in_column] == if_contains][then_extract_from_col]
+    return df
     
     
 if __name__ == "__main__":
