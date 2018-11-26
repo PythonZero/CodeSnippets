@@ -13,7 +13,7 @@ def fill_empty_df_dataflow_name(raw_df, empty_df):
     df = empty_df
     df['colname'] = raw_df[raw_df['col1'] == 'condition']['col8'] # only fills certain rows with the data in col8
     df['GSP'] = raw_df[raw_df['col0'] == 'GSP0']['col4'] 
-    # Checks where the row col0 is GSP, and takes the GSP from column 4.
+    # Checks where the row col0 is GSP0, and takes the GSP from column 4.
     df = parse_raw_df(df, raw_df, if_contains='GSP0', in_column='col0', then_extract_from_col='col1', column_name='GSP')
     return df
 
