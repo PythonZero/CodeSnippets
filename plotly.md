@@ -1,7 +1,7 @@
 # Plot.ly quick commands:
 -------------------------
 
-## Add dash .iplot() to a dataframe
+## Add plotly .iplot() to a dataframe
     
     import cufflinks as cf
     cf.set_config_file(offline=True, world_readable=False )
