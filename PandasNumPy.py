@@ -24,10 +24,5 @@ pd.merge(df1,df2, how='outer', indicator=True)
 np.set_printoptions(edgeitems=10) 
 np.core.arrayprint._line_width = 80 # how long each line is
 
-#Add dash .iplot() to a dataframe
-import cufflinks as cf
-cf.set_config_file(offline=True, world_readable=False )
-df.iplot()
-
 # Remove time from datetime
 TODAY = datetime.today().replace(hour=0, minute=0, second=0, microsecond=0)
