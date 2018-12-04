@@ -13,7 +13,7 @@ class AbstractSQLSaver(metaclass=ABCMeta):
 
 ### Ensures that the subclass has `_table_name`:
 class ConcreteSQLSaver(AbstractSQLSaver):
-    _table_name = 'GAS'
+    _table_name = 'GAS'  # overwrites the abstract property
 
 ### Errors as _table_name not defined:
 class ConcreteSQLSaver2(AbstractSQLSaver): 
