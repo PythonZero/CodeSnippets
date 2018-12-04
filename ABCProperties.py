@@ -19,7 +19,7 @@ class ConcreteSQLSaver(AbstractSQLSaver):
 class ConcreteSQLSaver2(AbstractSQLSaver): 
     pass
 
-### Allows you to add custom logic to setter _table_name:
+### Allows you to add custom logic to setter `table_name`:
 class ConcreteSQLSaver3(AbstractSQLSaver):
     _table_name = None
 
