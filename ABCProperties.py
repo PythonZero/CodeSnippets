@@ -11,15 +11,15 @@ class AbstractSQLSaver(metaclass=ABCMeta):
     def _table_name(self):
         pass
 
-### Ensures that the subclass has `_table_name` 
+### Ensures that the subclass has `_table_name`:
 class ConcreteSQLSaver(AbstractSQLSaver):
     _table_name = 'GAS'
 
-### Errors as _table_name not defined
+### Errors as _table_name not defined:
 class ConcreteSQLSaver2(AbstractSQLSaver): 
     pass
 
-### Allows you to add custom logic to setter _table_name
+### Allows you to add custom logic to setter _table_name:
 class ConcreteSQLSaver3(AbstractSQLSaver):
     _table_name = None
 
