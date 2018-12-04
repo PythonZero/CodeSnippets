@@ -16,7 +16,8 @@ class AbstractSQLSaver(metaclass=ABCMeta):
 class ConcreteSQLSaver(AbstractSQLSaver):
     _table_name = 'GAS'
 
-class ConcreteSQLSaver2(AbstractSQLSaver): pass
+class ConcreteSQLSaver2(AbstractSQLSaver): 
+    pass
 
 ### Ensure that the table name's setter/getter is of correct type
 
