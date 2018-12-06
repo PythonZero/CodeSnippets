@@ -1,6 +1,4 @@
-#Cython
-
-# Using Type annotations
+ 
 #### `cyth.pyx`
 
     from __future__ import print_function
