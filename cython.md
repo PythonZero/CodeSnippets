@@ -21,5 +21,6 @@
     
 Notes:
 
-  * use cython.types [full list of types can be found in cython.Shadow (e.g. int_types = ['char', 'short', ...])]
-  * cython.int can't do as big calculations as normal python int, so should use `out: int = 1` (python's int)
+  * use cython.types [full list of types can be found in cython.Shadow (e.g. `int_types = ['char', 'short', ...]`)]
+     - e.g. `cython.char`, `cython.short`
+  * `cython.int` can't do as big calculations as normal python int, so should use `out: int = 1` (python's int)
