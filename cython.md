@@ -18,7 +18,7 @@ _Alternate way_ - faster as it uses `cdef` (but cdef can only be called from cyt
 
 So must write a `def` function that calls the `cdef` function.
 
-    cdef int in_c_calc_sum_nums(int n):
+    cdef int in_c_calc_factorial(int n):
         """Calculates the factorial
         >>> calc_sum_nums(5)
         120
@@ -28,7 +28,7 @@ So must write a `def` function that calls the `cdef` function.
             out += i
         return out
 
-    def calc_sum_nums(n):
+    def calc_factorial(n):
         return in_c_calc_sum_nums(n)  # calls the cdef
     
 
