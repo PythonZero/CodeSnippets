@@ -13,6 +13,22 @@ Can use type annotations (for python 3.x support)
             out *= i
         print(out)
         return out
+        
+You can only call `cdef` functions from cython functions, so alternate way:
+
+    cdef int in_c_calc_sum_nums(int n):
+        """Calculates the factorial
+        >>> calc_sum_nums(5)
+        120
+        """
+        cdef int out = 1
+        for i in range(1, n+1):
+            out += i
+        return out
+
+    def calc_sum_nums(n):
+        return in_c_calc_sum_nums(n)  # calls the cdef
+    
 
 ### `file1.py`
 
