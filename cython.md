@@ -14,7 +14,8 @@ Can use type annotations (for python 3.x support)
         print(out)
         return out
         
-Alternate way - faster as it uses `cdef` (but cdef can only be called from cython (the .pyx) files). 
+_Alternate way_ - faster as it uses `cdef` (but cdef can only be called from cython (the .pyx) files). 
+
 So must write a `def` function that calls the `cdef` function.
 
     cdef int in_c_calc_sum_nums(int n):
