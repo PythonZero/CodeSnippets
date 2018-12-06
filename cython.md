@@ -25,7 +25,7 @@ So must write a `def` function that calls the `cdef` function.
         """
         cdef int out = 1
         for i in range(1, n+1):
-            out += i
+            out *= i
         return out
 
     def calc_factorial(n):
