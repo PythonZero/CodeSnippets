@@ -34,3 +34,13 @@ def test_print_10(capfd): # or replace capsys w/capfd - capfd also captures libr
     print("30")
     out, err = capfd.readouterr()
     assert '30\n' == out
+
+    
+# Testing Tree
+tests
+|________ integration
+|         |___test_module1
+|
+|________ unit
+            |__test_module1
+            |__test_module2
