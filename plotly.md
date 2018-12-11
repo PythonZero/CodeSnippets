@@ -22,3 +22,11 @@
     fig2 = df2.iplot(x=['dttm'], y=['Base', 'Peak', 'Off Peak'], asFigure=True)
     fig1['data'].extend(fig2['data'])
     iplot(fig1) # or plot(fig1) -> saves to file temporarily.
+
+## Save to html
+    import cufflinks as cf
+    cf.set_config_file(offline=True)
+    from plotly.offline import iplot, plot  
+    
+    fig = df.iplot(asFigure=True)
+    plot(fig,filename="predicted_price_fwd_curve_2018.html")
