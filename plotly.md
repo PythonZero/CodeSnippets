@@ -29,4 +29,4 @@
     from plotly.offline import iplot, plot  
     
     fig = df.iplot(asFigure=True)
-    plot(fig,filename="predicted_price_fwd_curve_2018.html")
+    plot(fig,filename="df_name.html")
