@@ -17,7 +17,7 @@ Can use type annotations (for python 3.x support)
         print(out)
         return out
         
-_Alternate way_ - faster as it uses `cdef` (but cdef can only be called from cython (the .pyx) files). 
+*Alternate way* - faster as it uses `cdef` (but cdef can only be called from cython (the .pyx) files). 
 
 So must write a `def` function that calls the `cdef` function.
 
