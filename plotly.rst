@@ -5,6 +5,7 @@ Add plotly .iplot() to a dataframe
 ==================================
 
 .. code-block:: python    
+
     import cufflinks as cf
     cf.set_config_file(offline=True, world_readable=False )
     df.iplot()
