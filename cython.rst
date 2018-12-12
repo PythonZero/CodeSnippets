@@ -1,7 +1,9 @@
  
-#### `cyth.pyx`
+`cyth.pyx`
 
 Can use type annotations (for python 3.x support)
+
+.. code-block:: python
 
     from __future__ import print_function
     import cython
