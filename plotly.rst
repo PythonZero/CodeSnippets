@@ -11,13 +11,20 @@ Add plotly .iplot() to a dataframe
     df.iplot()
 
 
-## Plot multiple subplots on a single plot:
+Plot multiple subplots on a single plot:
+=======================================
+
+.. code-block:: python
 
     cf.subplots([df1.figure(), 
                  df2.figure(x=['dttm'], y=['Base', 'Peak', 'Off Peak'])
                 ], shape=(2, 1)).iplot()
 
-## Plot multiple dfs on a single x, y:
+Plot multiple dfs on a single x, y:
+========================================
+
+.. code-block:: python
+
 
     from plotly.offline import iplot, plot  
 
@@ -26,7 +33,12 @@ Add plotly .iplot() to a dataframe
     fig1['data'].extend(fig2['data'])
     iplot(fig1) # or plot(fig1) -> saves to file temporarily.
 
-## Save to html
+Save to html
+=========================================
+
+.. code-block:: python
+
+
     import cufflinks as cf
     cf.set_config_file(offline=True)
     from plotly.offline import iplot, plot  
