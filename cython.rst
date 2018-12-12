@@ -1,5 +1,6 @@
  
 `cyth.pyx`
+===========
 
 Can use type annotations (for python 3.x support)
 
@@ -20,6 +21,8 @@ _Alternate way_ - faster as it uses `cdef` (but cdef can only be called from cyt
 
 So must write a `def` function that calls the `cdef` function.
 
+.. code-block:: python
+
     cdef int in_c_calc_factorial(int n):
         """Calculates the factorial
         >>> calc_sum_nums(5)
@@ -34,7 +37,11 @@ So must write a `def` function that calls the `cdef` function.
         return in_c_calc_sum_nums(n)  # calls the cdef
     
 
-### `file1.py`
+`file1.py`
+===============
+
+.. code-block:: python
+
 
     import pyximport; pyximport.install()
     import cyth # the file name is cyth.pyx
