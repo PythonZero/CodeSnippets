@@ -34,4 +34,4 @@ Resolving Circular Imports
               |____ path_formatting.py --> (f) return_path
 
 
-In `filestore.py` if you want to import 'OFFICE_365_PATH, make_folders_if_not_exist, return_path'
+In ``filestore.py`` if you want to import 'OFFICE_365_PATH, make_folders_if_not_exist, return_path'
