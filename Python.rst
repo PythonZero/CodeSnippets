@@ -19,14 +19,14 @@ Time some code
 
 Resolving Circular Imports
 ==========================
-# (V) = Variable
-# (f) = Function
+    # (V) = Variable
+    # (f) = Function
 
-module
-  |___ config.py ---> (V) OFFICE365_PATH
-  |___ directories 
-  |       |____ filestore.py  
-  |____ funcs
-          |____ folders.py --> (f) make_folders_if_not_exist
-          |____ path_formatting.py --> (f) return_path
+    module
+      |___ config.py ---> (V) OFFICE365_PATH
+      |___ directories 
+      |       |____ filestore.py  
+      |____ funcs
+              |____ folders.py --> (f) make_folders_if_not_exist
+              |____ path_formatting.py --> (f) return_path
 
