@@ -20,7 +20,7 @@ Time some code
 Resolving Circular Imports
 ==========================
 
-..
+.. code-block::
     # (V) = Variable
     # (f) = Function
 
