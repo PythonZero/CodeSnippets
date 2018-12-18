@@ -25,7 +25,7 @@ Resolving Circular Imports
     # (V) = Variable
     # (f) = Function
 
-    module
+    module (called `so`)
       |___ config.py ---> (V) OFFICE365_PATH
       |___ directories 
       |       |____ filestore.py  
@@ -34,4 +34,6 @@ Resolving Circular Imports
               |____ path_formatting.py --> (f) return_path
 
 
-In ``filestore.py`` if you want to import ``OFFICE_365_PATH, make_folders_if_not_exist, return_path``
+In ``filestore.py`` if you want to import ``OFFICE_365_PATH, make_folders_if_not_exist, return_path``, to prevent 
+circular imports, you can't do:
+   ``from .. import OFFICE365_PATH, make_folders_if_not_exist, return_path``
