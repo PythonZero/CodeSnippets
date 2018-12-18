@@ -41,7 +41,7 @@ circular imports, you *can't* do:
 
 as it imports from the module `so`, so when you import `so`, it imports `filestore` which then imports `so` --> cyclic-import
 
-*Solution*:
+**Solution**:
 
-``from ..config import OFFICE365_PATH``
-``from ..funcs import make_folders_if_not_exist, return_path``
+``from ..config import OFFICE365_PATH 
+from ..funcs import make_folders_if_not_exist, return_path``
