@@ -43,5 +43,7 @@ as it imports from the module `so`, so when you import `so`, it imports `filesto
 
 **Solution**:
 
-``from ..config import OFFICE365_PATH 
-from ..funcs import make_folders_if_not_exist, return_path``
+.. code-block:: python
+
+    from ..config import OFFICE365_PATH 
+    from ..funcs import make_folders_if_not_exist, return_path
