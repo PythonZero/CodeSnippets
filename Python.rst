@@ -36,9 +36,12 @@ Resolving Circular Imports
 
 In ``filestore.py`` if you want to import ``OFFICE_365_PATH, make_folders_if_not_exist, return_path``, to prevent 
 circular imports, you can't do:
+
 ``from .. import OFFICE365_PATH, make_folders_if_not_exist, return_path``
+
 as it imports from the module `so`, so when you import `so`, it imports `filestore` which then imports `so` --> cyclic-import
 
 Solution:
+
 ``from ..config import OFFICE365_PATH``
 ``from ..funcs import make_folders_if_not_exist, return_path``
