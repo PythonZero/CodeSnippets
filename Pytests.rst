@@ -71,7 +71,7 @@ Testing Tree
         
     tests
     |________ integration
-    |         |___test_module1
+    |         |___test_i_module1    # can't use the same name as unit/test_module1, so add an `_i_`
     |
     |________ unit
                 |__test_module1
