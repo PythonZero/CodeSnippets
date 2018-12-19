@@ -28,14 +28,13 @@ Adding argument(s) to Fixture
 .. code-block:: python
 
     @pytest.fixture
-    def create_temporary_file(request, tmpdir):     # request  MUST be a parameter, tmpdir is a fixture with the tmpdir location
+    def create_temporary_file(request, tmpdir):     # request MUST be a parameter, tmpdir is a fixture with the tmpdir location
         filename = request.param                    # the request object's param contains the values passed to it by the decorator
-        path = tmpdir / request.param
-        path.mkdir()
+        path = tmpdir / filename
         yield path
         
     @pytest.mark.parametrize('create_temporary_file', ['config.yaml'], indirect=True)   # INDIRECT = TRUE! important
-                                          # pass multiple args by [['bob', 'k', 3]] & access by name, ... = request.param[0], [1], [2]
+                        # pass multiple args by [['bob', 'k', 3]] & access by name, ... = request.param[0], [1], [2]
     def test_load_file(create_temporary_file):
         path = create_temporary_file
         path.write('this is what will be in the text file..!')
