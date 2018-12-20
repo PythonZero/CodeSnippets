@@ -40,6 +40,34 @@ Adding argument(s) to Fixture
         path.write('this is what will be in the text file..!')
         
 
+Adding arguments to Fixture AND test 
+==========================
+.. code-block:: python
+
+    def person_says(name, age):
+    return f"{name} is {age}"
+
+
+    @pytest.fixture
+    def add_surname(request):
+        surname = request.param
+        return f'Mike {surname}'
+
+
+    NAME1 = "Johnson"
+    AGE1 = "13"
+    OUTPUT1 = "Mike Johnson is 13"
+    NAME2 = "Liam"
+    AGE2 = "21"
+    OUTPUT2 = "Mike Liam is 21"
+
+
+    @pytest.mark.parametrize('add_surname,age,expected', [[NAME1, AGE1, OUTPUT1], [NAME2, AGE2, OUTPUT2]], indirect=['add_surname'])
+    def test_person_says(add_surname, age, expected):
+        name = add_surname
+        output = person_says(name, age)
+        assert expected == output
+
         
 CapSys or capfd (Capture the print)
 ==================================
