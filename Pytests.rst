@@ -62,7 +62,9 @@ Adding arguments to Fixture AND test
     OUTPUT2 = "Mike Liam is 21"
 
 
-    @pytest.mark.parametrize('add_surname,age,expected', [[NAME1, AGE1, OUTPUT1], [NAME2, AGE2, OUTPUT2]], indirect=['add_surname'])
+    @pytest.mark.parametrize('add_surname,age,expected', 
+                             [[NAME1, AGE1, OUTPUT1], [NAME2, AGE2, OUTPUT2]],
+                             indirect=['add_surname'])
     def test_person_says(add_surname, age, expected):
         name = add_surname
         output = person_says(name, age)
