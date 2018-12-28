@@ -101,7 +101,7 @@ Error Message Checking
     def test_something():
         
         # match takes regex
-        with pytest.raises(KeyError, match='you stupid*dinner') as e:
+        with pytest.raises(KeyError, match='hahaha .* for') as e:
             raise KeyError('hahaha you stupidddddddd so whats for dinner')
         
         assert 'stupiddddd' in str(e.value)
