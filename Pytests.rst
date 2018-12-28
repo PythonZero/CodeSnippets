@@ -21,6 +21,16 @@ MonkeyPatching
       monkeypatch.setattr('BasePath.Module.SubModule.B.bar',  # < -- IMPORTANT, you load it from B.py not A.py!!!!!!!
       new_bar)
       print(add_two_numbers(3)) # Prints 'Patched' & Outputs = 13
+      
+
+Patching Environment Variables
+=================================
+
+.. code-block:: python
+    
+def test_conn(monkeypatch):
+    monkeypatch.setenv('DATABASE_URL', '<URL WITH CREDENTIAL PARAMETERS>')
+    # Do stuff with patched environment
 
 
 Adding argument(s) to Fixture
