@@ -92,6 +92,20 @@ CapSys or capfd (Capture the print)
         out, err = capfd.readouterr()
         assert '30\n' == out
 
+
+Error Message Checking
+================
+
+.. code-block:: python
+    
+    def test_something():
+        
+        # match takes regex
+        with pytest.raises(KeyError, match='you stupid*dinner') as e:
+            raise KeyError('hahaha you stupidddddddd so whats for dinner')
+        
+        assert 'stupiddddd' in str(e.value)
+    
     
 Testing Tree
 ===================
