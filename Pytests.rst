@@ -28,9 +28,9 @@ Patching Environment Variables
 
 .. code-block:: python
     
-def test_conn(monkeypatch):
-    monkeypatch.setenv('DATABASE_URL', '<URL WITH CREDENTIAL PARAMETERS>')
-    # Do stuff with patched environment
+    def test_conn(monkeypatch):
+        monkeypatch.setenv('DATABASE_URL', '<URL WITH CREDENTIAL PARAMETERS>')
+        # Do stuff with patched environment
 
 
 Adding argument(s) to Fixture
