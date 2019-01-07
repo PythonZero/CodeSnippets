@@ -33,7 +33,7 @@ Patching Environment Variables
         # Do stuff with patched environment
 
 
-Adding argument(s) to Fixture
+Adding argument(s) to Fixture & Temporary path
 ==========================
 .. code-block:: python
 
