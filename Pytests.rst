@@ -25,6 +25,7 @@ MonkeyPatching
 Patching a default argument
 +++++++++++++++++++++++++++++++
 If you want to patch for example `x = 10` into `x = 100`, you can't patch `x`, must patch the function
+
 .. code-block:: python
 
    # file 1
