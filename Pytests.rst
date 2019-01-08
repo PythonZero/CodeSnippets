@@ -22,6 +22,25 @@ MonkeyPatching
       new_bar)
       print(add_two_numbers(3)) # Prints 'Patched' & Outputs = 13
       
+Patching a default argument
++++++++++++++++++++++++++++++++
+If you want to patch for example `x = 10` into `x = 100`, you can't patch `x`, must patch the function
+.. code-block:: python
+   # file 1
+   x = 10
+   def foo(a, b=x, c=2):   
+      return a + b + c)
+   
+   # file 2
+   from file1 import foo
+   def crazy(a):
+       foo(a)
+       
+   # test file
+   def patched_foo(a): return foo(a, b=100, c=2)
+   monkeypatch.setattr('file2.foo', patched_foo)
+       
+   
 
 Patching Environment Variables
 =================================
