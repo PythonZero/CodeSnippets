@@ -39,8 +39,9 @@ If you want to patch for example `x = 10` into `x = 100`, you can't patch `x`, m
        foo(a)
        
    # test file
-   def patched_foo(a): return foo(a, b=100, c=2)
-   monkeypatch.setattr('file2.foo', patched_foo)
+   def test_foo():
+       def patched_foo(a): return foo(a, b=100, c=2)
+       monkeypatch.setattr('file2.foo', patched_foo)
        
    
 
