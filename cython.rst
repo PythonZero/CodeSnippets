@@ -59,11 +59,11 @@ Notes:
 Type Annotations vs cython cdefs
 ==================================
 
-.. code-block:: python
 
 The cython way:
 +++++++++++++++++
 
+.. code-block:: python
 
     cdef long long in_c_calc_sum_nums(long long n):
         """Calculates the sum of all numbers
