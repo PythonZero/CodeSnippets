@@ -54,3 +54,53 @@ Notes:
      - e.g. `cython.char`, `cython.short`
   * `cython.int` can't do as big calculations as normal python `int`, so should use `out: int = 1` (python's `int`)
     - otherwise you get `inf`
+    
+    
+Type Annotations vs cython cdefs
+==================================
+
+.. code-block:: python
+
+The cython way:
++++++++++++++++++
+
+
+    cdef long long in_c_calc_sum_nums(long long n):
+        """Calculates the sum of all numbers
+        >>> calc_sum_nums(5)
+        120
+        """
+        cdef long long out = 1
+        cdef long long i          # SO IMPORTANT!!!!!!!!
+        for i in range(1, n+1):
+            out += i
+        return out
+
+    def calc_sum_nums(n: cython.longlong):
+        return in_c_calc_sum_nums(n)
+
+
+  
+The type annotation way:
+++++++++++++++++++++++++  
+
+.. code-block:: python
+
+    cdef long long in_c_calc_sum_nums(n: cython.int):
+        """Calculates the sum of all numbers
+        >>> calc_sum_nums(5)
+        120
+        """
+        out: cython.longlong = 1
+        i: cython.longlong #DONT FORGET THE I!!!
+        for i in range(1, n+1):
+            out += i
+        return out
+
+    def calc_sum_nums(n: cython.int) -> cython.longlong:
+        return in_c_calc_sum_nums(n)
+
+
+    Comparisons:
+    - Pure Python: 1.7165143999999999
+    - cdef Cython: 0.009720900000000032
