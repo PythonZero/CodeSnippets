@@ -12,8 +12,8 @@ Functions
 /////////
 - Small and descriptive names
 - Should only do 1 thing, and 1 thing well
-  * i.e. functions should not have `and`s, e.g. `filter_and_save(df)`
-  * What is returned should be logical
+    * i.e. functions should not have `and`s, e.g. `filter_and_save(df)`
+    * What is returned should be logical
 - Order of parameters is important
-  * The most important variable should be first
+    * The most important variable should be first
 - parameterise the function as much as possible
