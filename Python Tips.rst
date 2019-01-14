@@ -16,4 +16,4 @@ Functions
     * What is returned should be logical
 - Order of parameters is important
     * The most important variable should be first
-- parameterise the function as much as possible
+- Parameterise the function as much as possible
