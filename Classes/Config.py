@@ -32,8 +32,6 @@ from typing import Dict, Any, Callable, Optional, Union, List, Sequence
 
 from solib.pytypes import P
 
-O365_PATH = "F:/O365/So Energy/Data Team - FILESTORE/"  # TODO: Move this to the config.
-
 
 def load_config_vars(
     path: Optional[str],
