@@ -16,11 +16,14 @@ https://www.iceflatline.com/2015/12/run-a-windows-application-as-a-service-with-
 5) Go to ``HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\<My Service>``
 6) Right Click (or edit at the top) -> New -> Key
       ``Key Name: Parameters``
+      
       ``Class: <leave it blank>``
 7) Go into the Parameters Key (should create a sub folder)
 8) Right Click -> New -> String Value 
       ``Name: Application``
+      
       ``Data: <your script to run the program>``  
+      
       e.g. ``Data: C:\ProgramData\Anaconda3\python.exe C:\path\to\script.py var1 var2``
 9) Close the Registry Editor
 10) Go to the services page, and change the settings (I.e. run automatically at startup, which log in credentials to use, 
