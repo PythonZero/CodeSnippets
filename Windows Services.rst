@@ -11,6 +11,7 @@ https://www.iceflatline.com/2015/12/run-a-windows-application-as-a-service-with-
    "Django MyWebsite" "C:\Program Files (x86)\Windows Resource Kits\Tools\srvany.exe"`` 
    
    where you replace ``"Django MyWebsite"`` with the name of the service
+   
    note, it needs the full/path/to/instsrv & srvany.exe 
 4) Open the Registry Editor (``Regedit.exe``)
 5) Go to ``HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\<My Service>``
