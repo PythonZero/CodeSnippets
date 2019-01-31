@@ -28,7 +28,9 @@ https://www.iceflatline.com/2015/12/run-a-windows-application-as-a-service-with-
       e.g. ``Data: C:\ProgramData\Anaconda3\python.exe C:\path\to\script.py var1 var2``
 9) Right Click -> New -> String Value
        ``Name: AppDirectory``
+       
        ``Data: C:\Path\To\Where\Your\App\Should\Run\In``
+       
 10) Close the Registry Editor
 11) Go to the services page, and change the settings (I.e. run automatically at startup, which log in credentials to use, 
     what to do if failure etc.)
