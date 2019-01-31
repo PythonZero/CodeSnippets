@@ -16,5 +16,9 @@ logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
 logger = logging.getLogger('root') # DOES NOT WORK as you can't access the root logger from getLogger
 
+# Another way to get the root Logger:
+logger = logging.getLogger()
+logger = logging.getLogger(None) # I think <-- check this then delete this comment
+
 #Silencing Loggers:
 logging.getLogger("requests").setLevel(logging.WARNING) # or paramiko, or urllib3 (whatever library).
