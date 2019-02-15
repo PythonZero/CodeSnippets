@@ -1,7 +1,7 @@
-Numpy Functions
+Numpy Stuff
 -------------------------
 
-Repeat data
+Repeating data
 ==================================
 
 .. code-block:: python    
