@@ -41,6 +41,7 @@ And you want to see what you spent for each day:
 2) Compare on a cell by cell basis 
 
 .. code-block:: python
+
     # Doesnt work:   (df2 > df1['DttmFrom']) & (df2 < df1['DttmTo'])
     # so must use: df.gt | .lt | .ge | .le | .ne | .eq 
     df2 = (df2.ge(df1['DttmFrom'], axis=0) & df2.le(df1['DttmTo'], axis=0))
