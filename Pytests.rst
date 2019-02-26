@@ -51,9 +51,17 @@ Patching Environment Variables
 .. code-block:: python
     
     def test_conn(monkeypatch):
-        monkeypatch.setenv('DATABASE_URL', '<URL WITH CREDENTIAL PARAMETERS>')
+        monkeypatch.setenv('DATABASE_URL', 'Patched_URL')
+        monkeypatch.delenv(name, raising=True)
         # Do stuff with patched environment
 
+Note:
+
+.. code-block:: python
+        
+        monkeypatch.setenv(name, value, prepend=None) # prepend saves the existing env variable
+        # e.g. name = monkeypatch.setenv('DATABASE_URL', 'google.com', prepend = '_'),
+        # Then there will be {'DATABASE_URL': 'google.com' , '_DATABASE_URL': 'old_value'} 
 
 Adding argument(s) to Fixture & Temporary path
 ==========================
