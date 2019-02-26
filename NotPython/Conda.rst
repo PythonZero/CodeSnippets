@@ -1,8 +1,8 @@
 Conda Commands
 +++++++++++++++
 
-Conda environment stuff
-=======================
+Basic Create/Activate/Deactive Conda
+==============================
 
 
 .. code-block:: console
@@ -13,6 +13,7 @@ Conda environment stuff
     
     
 Creating/Deleting env specific location:
+=========================================
 
 .. code-block:: console
 
