@@ -5,7 +5,7 @@ Conda environment stuff
 =======================
 
 
-.. code-block:: batch
+.. code-block:: console
 
     conda create -n myEnv python=3.5 pip
     activate myEnv
