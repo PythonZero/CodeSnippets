@@ -5,9 +5,10 @@ Setting Permissions
 ======================
 
 1) In Server -> Security -> (Their username or SEC Group)
-  a) go to User Mappings
-  b) tick the databases they should have access to
-  c) Assign db_datareader only (for read only)
+
+   1) go to User Mappings
+   2) tick the databases they should have access to
+   3) Assign db_datareader only (for read only)
   
 - `SELECT` permissions only (read only):
    * ✓ db_datareader
