@@ -29,7 +29,8 @@ For each database, you must:
    CREATE ROLE db_executor
 
    -- Grant execute rights to the new role
-   GRANT ALTER, EXECUTE, VIEW DEFINITION TO db_executor
-   
+   GRANT EXECUTE, VIEW DEFINITION TO db_executor
+   -- DON'T GIVE ALTER ACCESS:
+   -- GRANT ALTER, EXECUTE, VIEW DEFINITION to db_executor 
 Then you can assign :
       * ✓ db_executor
