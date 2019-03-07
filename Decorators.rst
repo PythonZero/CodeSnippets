@@ -17,7 +17,6 @@ Capturing Arguments
 
     import inspect
 
-
     def add(x, y, z):
         return x + y - z
 
