@@ -13,6 +13,7 @@ Capturing Arguments
     database = func_bound_args.arguments['database']
 
 Example:
+
 .. code-block:: python
 
     import inspect
