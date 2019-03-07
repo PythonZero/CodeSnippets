@@ -23,5 +23,5 @@ Capturing Arguments
 
     x = inspect.signature(add)
     b = x.bind(1, **{'z': 3, 'y': 2})
-    p = x.parameters  #{x:1, y:2, z:3}
+    p = b.arguments   # {x:1, y:2, z:3}
     
