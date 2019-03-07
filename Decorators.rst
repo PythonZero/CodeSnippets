@@ -12,7 +12,7 @@ Capturing Arguments
     server = func_bound_args.arguments['server']
     database = func_bound_args.arguments['database']
 
-
+Example:
 .. code-block:: python
 
     import inspect
