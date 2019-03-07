@@ -32,6 +32,7 @@ For each database, you must:
    GRANT EXECUTE, VIEW DEFINITION TO db_executor
    -- DON'T GIVE ALTER ACCESS:
    -- GRANT ALTER, EXECUTE, VIEW DEFINITION to db_executor 
+   
 Then you can assign :
       * ✓ db_executor
 
@@ -55,7 +56,7 @@ Example:
 
 .. code-block:: sql
  
-   CREATE USER [DOMAIN\bob] FROM LOGIN [DOMAIN\bob]  -- step 1 
-   ALTER ROLE [db_executor] ADD MEMBER [DOMAIN\bob]  -- step 2
+   CREATE USER [DOMAIN\bob] FROM LOGIN [DOMAIN\bob] 
+   ALTER ROLE [db_executor] ADD MEMBER [DOMAIN\bob] 
 
  
