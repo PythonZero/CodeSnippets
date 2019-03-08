@@ -12,7 +12,8 @@ Add as Environment Variable:
 .. code-block:: batch
 
     PYTHONPATH='C:/path/to/file;.;..;../..;C:/path2/to/another2/file2;'
-    # The `.` adds the current directory, ``..`` adds the directory above,
+
+The `.` adds the current directory, ``..`` adds the directory above,
 
 
 Temporarily
