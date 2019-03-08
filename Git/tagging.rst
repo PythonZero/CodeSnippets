@@ -13,7 +13,7 @@ Tagging the latest commit
 Pushing the tag to server
 ---------------------------
   
-..code-block:: shell
+.. code-block:: shell
 
     git push origin <tagname>
   
@@ -31,5 +31,5 @@ Deleting a tag
 
 .. code-block:: shell
 
-    git tag -d <tagname>.
+    git tag -d <tagname>
   
