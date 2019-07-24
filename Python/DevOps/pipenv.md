@@ -11,7 +11,7 @@ pipenv shell
 
 ## Temporarily add pipenv to the PATH in a bat file
 ```
-                                             # env_runner.bat  
+#################### env_runner.bat ##########################
 pushd %~dp0                                  # cd's into bat folder
 set PATH=%PATH%;C:\Path\To\Python\scripts    # sets pipenv to be useable
 pipenv shell                                 # activates the environment
