@@ -110,6 +110,24 @@ Adding arguments to Fixture AND test
         output = person_says(name, age)
         assert expected == output
 
+Some Notes:
+1) if you had a fixture function that took 0 arguments,  you MUST still give it a parameterized argument, e.g.
+
+.. code-block:: python
+
+
+    @pytest.fixture
+    def clean_database():
+        print("Cleaned")
+
+    @pytest.mark.parametrize("clean_database,greeting", [(None, "hello")], indirect=["clean_database"])
+        def test_greet(clean_database, greeting):
+            print(greeting)
+
+
+2) setting `indirect = False`, means all the arguments are local parameters
+   setting `indirect = True`, means all the arguments are fixture parameters
+   setting `indirect = ['function_name']`, means only to use that argument as a fixture parameter
         
 CapSys or capfd (Capture the print)
 ==================================
