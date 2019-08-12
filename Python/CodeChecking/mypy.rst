@@ -22,8 +22,9 @@ Type of parent (i.e. subclasses parent)
 Forward Referencing (i.e. will be declared later)
 ##################################################
 
-.. code-block: python
-    
+
+.. code-block:: python
+
     # Wrap the class with speech marks
     def do_something_with_class_tree(arg1: "Tree"): pass
     class Tree: pass
@@ -32,11 +33,9 @@ Forward Referencing (i.e. will be declared later)
 Prevent Cyclical Referencing
 #############################
 
-.. code-block: python
+.. code-block:: python
 
     # file1:
-    
-    
     from file2 import grow_a_plant
    
     class Tree:
