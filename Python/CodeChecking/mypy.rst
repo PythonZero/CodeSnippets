@@ -43,7 +43,8 @@ Prevent Cyclical Referencing
             grow_a_plant(self)
     
    # file2: 
-     if False:   # will never run, but good enough for type checking.
+     from typing import TYPE_CHECKING
+     if TYPE_CHECKING:   # (TYPE_CHECKING == False) ... will never run, but good enough for type checking.
         from file1 import Tree  
         
      def grow_a_plant(tree: "Tree"): pass  # references the Tree in file1.
