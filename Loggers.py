@@ -1,7 +1,7 @@
 #Logging
 logging.basicConfig(filename=r"path/to/logfile.log",
                     level=logging.DEBUG,
-                    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+                    format="[%(asctime)s] - %(name)s - %(levelname)s - %(message)s")
 LOGGER = logging.getLogger('logfilename')
 LOGGER.debug('Logger ready')
 
