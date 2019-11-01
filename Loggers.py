@@ -1,7 +1,11 @@
 #Logging
-logging.basicConfig(filename=r"path/to/logfile.log",
-                    level=logging.DEBUG,
-                    format="[%(asctime)s] - %(name)s - %(levelname)s - %(message)s")
+import sys
+logging.basicConfig(
+    filename=generate_file_name("logs.log"),
+    level=logging.DEBUG,
+    format="[%(asctime)s] - %(name)s - %(levelname)s - %(message)s",
+    stream=sys.stdout
+)
 LOGGER = logging.getLogger('logfilename')
 LOGGER.debug('Logger ready')
 
