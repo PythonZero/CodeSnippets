@@ -17,6 +17,7 @@ class Soldier:
         self.hp = hp
 
 
+# Both are the same, but Dataclass auto creates the __init__
 x = DataSoldier('Bob', 10, 20, 300)
 y = Soldier('Jack', 10, 20, 300)
 
