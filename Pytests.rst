@@ -177,3 +177,28 @@ Testing Tree
     |________ unit
                 |__test_module1
                 |__test_module2
+
+
+Make fixtures appear across all modules
+========================================
+
+Put fixtures in a conftest.py
+.. code-block:: python
+
+    # conftest.py
+    @pytest.fixture(scope="session")
+    def gcp_setup():
+        print("SETTING UP GCP BUCKETS AND DATASET")
+        yield
+        print("TEARING DOWN GCP BUCKETS AND DATASET")
+    
+
+You can then use those fixtures without needing to import them, e.g.
+
+
+.. code-block:: python
+
+    # test_file.py
+    def test_function(gcp_setup):
+        assert 5+5 == 10
+    
