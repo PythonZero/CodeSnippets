@@ -183,6 +183,7 @@ Make fixtures appear across all modules
 ========================================
 
 Put fixtures in a conftest.py
+
 .. code-block:: python
 
     # conftest.py
