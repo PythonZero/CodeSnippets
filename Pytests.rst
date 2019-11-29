@@ -187,19 +187,29 @@ Put fixtures in a conftest.py
 .. code-block:: python
 
     # conftest.py
-    @pytest.fixture(scope="session")
+    @pytest.fixture(scope="session", autouse=True)
     def gcp_setup():
         print("SETTING UP GCP BUCKETS AND DATASET")
         yield
         print("TEARING DOWN GCP BUCKETS AND DATASET")
     
+    @pytest.fixture
+    def hello():
+        print("Hello")
+    
 
+If autouse=True, then it will run regardless.
 You can then use those fixtures without needing to import them, e.g.
 
 
 .. code-block:: python
 
     # test_file.py
-    def test_function(gcp_setup):
+    def test_function(hello):
         assert 5+5 == 10
+    
+    # Output
+    # SETTING UP GCP BUCKETS AND DATASET
+    # Hello
+    # TEARING DOWN GCP BUCKETS AND DATASET
     
