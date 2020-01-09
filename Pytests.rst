@@ -151,6 +151,17 @@ CapSys or capfd (Capture the print)
         assert '30\n' == out
 
 
+CapLog (Capture the Log)
+==============================
+
+.. code-block:: python
+
+    def test_capture_log(caplog):
+        caplog.set_level(logging.DEBUG)
+        # ...
+        assert 'abcd' in caplog.text
+        # caplog.text, caplog.records, caplog.record_tuples, caplog.clear()
+
 Error Message Checking
 ================
 
