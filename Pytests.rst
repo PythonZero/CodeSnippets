@@ -224,3 +224,10 @@ You can then use those fixtures without needing to import them, e.g.
     # Hello
     # TEARING DOWN GCP BUCKETS AND DATASET
     
+
+Ignoring doctests
+==================================
+
+```
+>>> some_code('x', 'y', 'z') # doctest: +SKIP
+```
