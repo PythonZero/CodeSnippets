@@ -1,5 +1,12 @@
 # Install jupyter extensions
 conda install -c conda-forge jupyter_contrib_nbextensions
+
+# OR
+sudo pip3 install jupyter_contrib_nbextensions 
+jupyter contrib nbextension install --user
+
+
+# Individual extensions:
 jupyter nbextension enable codefolding/main
 jupyter nbextension enable execute_time/ExecuteTime
 jupyter nbextension enable notify/notify
@@ -13,3 +20,8 @@ jupyter nbextension enable hinterland/hinterland
 jupyter nbextension enable ruler/main
 
 pip install nb_black
+
+
+
+# Use nb_black
+%load_ext nb_black
