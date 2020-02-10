@@ -46,7 +46,7 @@ Test:
 
     import pandas as pd
 
-    from svalbard.wrappers import immutable_df
+    from .wrappers import immutable_df
 
 
     def test_immutable_df():
