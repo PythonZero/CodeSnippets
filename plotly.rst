@@ -11,6 +11,18 @@ Add plotly .iplot() to a dataframe
     df.iplot()
 
 
+Modify config of iplot
+========================
+
+.. code-block:: python
+
+    fig = df.iplot(asFigure=True)
+    # change the setting, i.e. hovermode
+    fig.layout["hovermode"] = "x"
+    plotly.offline.iplot(fig)
+
+
+
 Plot multiple subplots on a single plot:
 =======================================
 
