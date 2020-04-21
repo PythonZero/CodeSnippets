@@ -26,3 +26,6 @@ np.core.arrayprint._line_width = 80 # how long each line is
 
 # Remove time from datetime
 TODAY = datetime.today().replace(hour=0, minute=0, second=0, microsecond=0)
+
+# For testing, make the df.to_records output cleaner (no index)
+{k:[j for j in v.values()] for k,v in df.to_dict().items()}
