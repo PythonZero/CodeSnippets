@@ -29,3 +29,8 @@ TODAY = datetime.today().replace(hour=0, minute=0, second=0, microsecond=0)
 
 # For testing, make the df.to_records output cleaner (no index)
 {k:[j for j in v.values()] for k,v in df.to_dict().items()}
+
+# Querying a df in place, rather than doing df[mask]
+df.query('column_name.str.contains("abc")', engine='python')
+df.query('column_name > 3') 
+df.query('`column name1` > `column name2`')
