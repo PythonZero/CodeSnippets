@@ -22,6 +22,20 @@
     COPY src/ .
 
     # command to run on container start
-    CMD [ "python", "./server.py" ]
+    CMD [ "python", "./run.py" ]
     
     
+2) Build the image 
+
+.. code-block:: batch
+    
+    # In the folder, run the command to create the image 
+    docker build -t myimage .
+    
+    # Check its there
+    docker image ls
+    
+3) Run the image
+
+.. code-block:: batch
+    docker run myimage
