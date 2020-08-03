@@ -81,9 +81,27 @@ Images vs Containers
    # Either ls or ps
    docker container ls
    docker ps
+   # See all containers (including stopped ones)
+   docker ps -a
    
 3) Attach into the container
 
 .. code-block::
 
    docker attach <CONTAINER ID from step 2 - you can type only the first few characters> 
+   
+## Clearing Containers
+
+- Even after closing a container, it still exists in the background
+
+.. code-block:: 
+     
+   # List all containers (Including stopped ones)
+   docker ps -a -q
+   
+   # Stop/Kill all containers (Kill = forced version of stop)
+   docker stop $(docker ps -a -q)
+   docker kill $(docker ps -a -q)
+   
+   # Remove all containers
+   docker rm $(docker ps -a -q)
