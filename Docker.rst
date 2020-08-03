@@ -90,7 +90,8 @@ Images vs Containers
 
    docker attach <CONTAINER ID from step 2 - you can type only the first few characters> 
    
-## Clearing Containers
+Clearing Containers
+##################
 
 - Even after closing a container, it still exists in the background
 
