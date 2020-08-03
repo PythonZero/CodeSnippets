@@ -38,4 +38,5 @@
 3) Run the image
 
 .. code-block:: batch
+
     docker run myimage
