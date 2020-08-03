@@ -85,4 +85,5 @@ Images vs Containers
 3) Attach into the container
 
 .. code-block::
+
    docker attach <CONTAINER ID from step 2 - you can type only the first few characters> 
