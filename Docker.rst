@@ -24,12 +24,21 @@
     # command to run on container start
     CMD [ "python", "./run.py" ]
     
+    ## NOTE: if you want print commands to show, then add `-u` - it will display "unbuffered" output
+    CMD [ "python", "-u", "./run.py"]
+    
+    # OR, set the environment variable PYTHONUNBUFFERED=0
+    ENV PYTHONUNBUFFERED=0
+    CMD [ "python", "./run.py" ]
+
+    
     
 2) Build the image 
 
 .. code-block:: batch
     
     # In the folder, run the command to create the image 
+    # -t = tag, so give it a unique name (otherwise it will overwrite the old names)
     docker build -t myimage .
     
     # Check its there
