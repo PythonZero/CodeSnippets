@@ -99,8 +99,8 @@ Images vs Containers
 
    docker attach <CONTAINER ID from step 2 - you can type only the first few characters> 
    
-Clearing Containers
-##################
+Clearing Containers / Images
+###############################
 
 - Even after closing a container, it still exists in the background
 
@@ -115,3 +115,8 @@ Clearing Containers
    
    # Remove all containers
    docker rm $(docker ps -a -q)
+   
+.. code-block:: 
+  
+  # Remove all images that don't have  a container
+  docker image prune
