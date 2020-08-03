@@ -1,4 +1,5 @@
-# Creating a docker image
+Creating a docker image
+###########################
 
 1) Create a Dockerfile
 
@@ -58,3 +59,30 @@
     # -it = --interactive and --tty (tty is essentially a text input output environment aka shell)
     docker run -it myimage bash
     docker run -it myimage /bin/bash
+        
+
+Images vs Containers
+#########################
+
+- Images contain the instructions to create the virtual machine.
+- Containers are created when you run the image (and close, when finished running)
+
+1) Run a continuous process (i.e. a webserver, or a bash shell) - this creates a container that remains running
+    
+.. code-block:: bash
+  
+  # -d = detached,
+  docker run -itd myimage bash
+
+2) Show the container 
+
+.. code-block:: bash
+
+   # Either ls or ps
+   docker container ls
+   docker ps
+   
+3) Attach into the container
+
+.. code-block::
+   docker attach <CONTAINER ID from step 2 - you can type only the first few characters> 
