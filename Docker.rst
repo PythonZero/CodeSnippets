@@ -24,10 +24,11 @@
     # command to run on container start
     CMD [ "python", "./run.py" ]
     
-    ## NOTE: if you want print commands to show, then add `-u` - it will display "unbuffered" output
+    ## NOTE: if you want print commands to show, then you can either:
+    # 1) add `-u` - it will display "unbuffered" output
     CMD [ "python", "-u", "./run.py"]
-    
-    # OR, set the environment variable PYTHONUNBUFFERED=0
+
+    # 2)  set the environment variable PYTHONUNBUFFERED=0
     ENV PYTHONUNBUFFERED=0
     CMD [ "python", "./run.py" ]
 
