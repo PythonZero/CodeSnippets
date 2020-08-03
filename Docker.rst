@@ -1,6 +1,13 @@
 Creating a docker image
 ###########################
 
+- Dockerfiles work by going instructions one by one. It caches it, and stores each instruction.
+- Only if there's a change in an instruction, will it be re-run
+- So, if e.g. step 3 is copy copy requirements file. If the file hasn't changed it will skip
+- Then step 4 will also skip, because nothings changed
+- Thats why, its better to install the reqs first, THEN copy all the files, so changing one file won't
+  mean that you have to re-install the requirements each time.
+
 1) Create a Dockerfile
 
 .. code-block:: dockerfile
@@ -13,7 +20,9 @@ Creating a docker image
     # (creates and cd's into the directory) 
     WORKDIR /code
 
-    # copy the dependencies file to the working directory
+    # copy the dependencies file to the working directory 
+    # we do this separately, so that when you re-create the image, it can skip the
+    # re-installing of requirements each time, and uses the old version (unless the reqs change)
     COPY requirements.txt .
 
     # install dependencies
