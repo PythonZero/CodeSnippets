@@ -54,6 +54,7 @@
 4) Freeze into the image (To debug)
 
 .. code-block:: bash
-
+    
+    # -it = --interactive and --tty (tty is essentially a text input output environment aka shell)
     docker run -it myimage bash
     docker run -it myimage /bin/bash
