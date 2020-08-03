@@ -36,7 +36,7 @@
     
 2) Build the image 
 
-.. code-block:: batch
+.. code-block:: bash
     
     # In the folder, run the command to create the image 
     # -t = tag, so give it a unique name (otherwise it will overwrite the old names)
@@ -47,6 +47,13 @@
     
 3) Run the image
 
-.. code-block:: batch
+.. code-block:: bash
 
     docker run myimage
+
+4) Freeze into the image (To debug)
+
+.. code-block:: bash
+
+    docker run -it myimage bash
+    docker run -it myimage /bin/bash
