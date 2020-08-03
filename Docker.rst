@@ -4,7 +4,7 @@ Creating a docker image
 - Dockerfiles work by going instructions one by one. It caches it, and stores each instruction.
 - Only if there's a change in an instruction, will it be re-run
 - So, if e.g. step 3 is copy copy requirements file. If the file hasn't changed it will skip
-- Then step 4 will also skip, because nothings changed
+- Then step 4 (run the pip install reqs) will also skip, because nothing's changed
 - Thats why, its better to install the reqs first, THEN copy all the files, so changing one file won't
   mean that you have to re-install the requirements each time.
 
