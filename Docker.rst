@@ -48,7 +48,7 @@ Creating a docker image
 
 .. code-block:: bash
     
-    # In the folder, run the command to create the image 
+    # In the folder with the Dockerfile, run the command to create the image 
     # -t = tag, so give it a unique name (otherwise it will overwrite the old names)
     docker build -t myimage .
     
