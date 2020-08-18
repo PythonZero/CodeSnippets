@@ -80,7 +80,7 @@ Images vs Containers
     
 .. code-block:: bash
   
-  # -d = detached,
+  #  -it = --interactiv and -d = detached,
   docker run -itd myimage bash
 
 2) Show the container 
