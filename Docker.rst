@@ -68,6 +68,9 @@ Creating a docker image
     # -it = --interactive and --tty (tty is essentially a text input output environment aka shell)
     docker run -it myimage bash
     docker run -it myimage /bin/bash
+    
+    # Build and run together
+    docker build -t myimage . && docker run -it myimage bash
         
 
 Images vs Containers
