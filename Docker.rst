@@ -123,3 +123,23 @@ Clearing Containers / Images
   
   # Remove all images that don't have  a container
   docker image prune
+
+
+Docker Compose
+#################################
+
+- Create a `docker-compose.yaml` file.
+- Has the rules for how to deploy the server (can deploy multiple servers & how they interact)
+
+```
+version: '3'  # The DockerCompose Version we're using
+services:
+  sval-web:  # Service 1's container name
+    build: .  # Use the Dockerfile in this folder
+    ports:
+      - "5000:5000"  # Bind these ports
+  
+  # (Optional, a second Service)
+  redisImage:
+    image: "redis:alpine"   # no Dockefile
+```
