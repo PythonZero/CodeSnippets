@@ -131,16 +131,15 @@ Docker Compose
 - Create a `docker-compose.yaml` file.
 - Has the rules for how to deploy the server (can deploy multiple servers & how they interact)
 
-```
+.. code-block:: Docker
 
-version: '3'  # The DockerCompose Version we're using
-services:
-  sval-web:  # Service 1's container name
-    build: .  # Use the Dockerfile in this folder
-    ports:
-      - "5000:5000"  # Bind these ports
-  
-  # (Optional, a second Service)
-  redisImage:
-    image: "redis:alpine"   # no Dockefile
-```
+  version: '3'  # The DockerCompose Version we're using
+  services:
+    sval-web:  # Service 1's container name
+      build: .  # Use the Dockerfile in this folder
+      ports:
+        - "5000:5000"  # Bind these ports
+
+    # (Optional, a second Service)
+    redisImage:
+      image: "redis:alpine"   # no Dockefile
