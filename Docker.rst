@@ -132,6 +132,7 @@ Docker Compose
 - Has the rules for how to deploy the server (can deploy multiple servers & how they interact)
 
 ```
+
 version: '3'  # The DockerCompose Version we're using
 services:
   sval-web:  # Service 1's container name
