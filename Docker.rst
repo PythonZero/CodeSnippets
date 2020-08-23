@@ -128,7 +128,7 @@ Clearing Containers / Images
 Docker Compose
 #################################
 
-- Create a `docker-compose.yaml` file.
+- Create a ``docker-compose.yaml`` file.
 - Has the rules for how to deploy the server (can deploy multiple servers & how they interact)
 
 .. code-block:: Docker
