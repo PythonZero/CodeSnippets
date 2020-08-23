@@ -133,13 +133,12 @@ Docker Compose
 
 .. code-block:: Docker
 
-  version: '3'  # The DockerCompose Version we're using
+  version: '3'                   # The DockerCompose Version we're using
   services:
-    sval-web:  # Service 1's container name
-      build: .  # Use the Dockerfile in this folder
+    sval-web:                    # Service 1's container name
+      build: .                   # Use the Dockerfile in this folder
       ports:
-        - "5000:5000"  # Bind these ports
+        - "5000:5000"            # Bind these ports
 
-    # (Optional, a second Service)
-    redisImage:
-      image: "redis:alpine"   # no Dockefile
+    redisImage:                  # (Optional, a second Service)
+      image: "redis:alpine"      # no Dockefile
