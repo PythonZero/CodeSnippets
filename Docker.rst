@@ -142,3 +142,10 @@ Docker Compose
 
     redisImage:                  # (Optional, a second Service)
       image: "redis:alpine"      # no Dockefile
+      
+Making Docker Compose work with Pycharm (Windows)
++++++++++++++++++++++++++++++++++++++++++++++++++
+1) Deleting the existing image / Re-running the image
+2) In docker for windows settings
+  a) In General -> Expose daemon on tcp://localhost:2375 without TLS
+  b) In Resources -> File Sharing -> Added the directory for pycharm (or just add the whole C:\ drive)
