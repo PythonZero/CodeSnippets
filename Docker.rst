@@ -41,8 +41,8 @@ Creating a docker image
     # 2)  set the environment variable PYTHONUNBUFFERED=0
     ENV PYTHONUNBUFFERED=0
     CMD [ "python", "./run.py" ]
+  
 
-    
     
 2) Build the image 
 
@@ -71,7 +71,13 @@ Creating a docker image
     
     # Build and run together
     docker build -t myimage . && docker run -it myimage bash
-        
+
+ENTRYPOINT vs CMD
+++++++++++++++++++
+  
+- ENTRYPOINT is defaulted to the shell, e.g. `/bin/sh -c`
+- CMD is run as the args of the ENTRYPOINT 
+- So, Only change ENTRYPOINT if you want to make your container inflexible / make it an executable
 
 Images vs Containers
 #########################
