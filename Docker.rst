@@ -75,9 +75,22 @@ Creating a docker image
 ENTRYPOINT vs CMD
 ++++++++++++++++++
   
-- ENTRYPOINT is defaulted to the shell, e.g. `/bin/sh -c`
+- ENTRYPOINT is defaulted to the shell, e.g. ``/bin/sh -c``
 - CMD is run as the args of the ENTRYPOINT 
 - So, Only change ENTRYPOINT if you want to make your container inflexible / make it an executable
+
+- e.g.
+
+.. code-block:: docker
+
+          ENTRYPOINT ["flask"]
+          CMD ["app.py"]
+
+is the same as running
+
+.. code-block:: bash
+
+    CMD ["flask", "app.py"]
 
 Images vs Containers
 #########################
