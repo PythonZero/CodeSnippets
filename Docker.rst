@@ -92,8 +92,11 @@ To expose **specific** ports, use `-p 5000:9999`, which will forward port 9999 (
 
 - **NOTE**: if you are using `EXPOSE`, then do **NOT** forward it to the exported port, and always expose to another port.
   (I think EXPOSE uses that port, so you cant re-use it).
-    - e.g. if you have `EXPOSE 5000`, then your local one shouldn't be 5000, but the docker one can be
-    - e.g. OKAY: `-b
+  
+  - e.g. if you have `EXPOSE 5000`, then your local one shouldn't be 5000, but the docker one can:
+  
+    - OKAY: `-p 5000:5001`
+    - NOT OKAY: `-p 5000:5000`
 
 
 ENTRYPOINT vs CMD
