@@ -30,6 +30,10 @@ Creating a docker image
 
     # copy the content of the local src directory to the working directory
     COPY src/ .
+    
+    # if you have a webserver, use EXPOSE. 
+    # **NOTE**: do ***NOT*** use this port when forwarding, as it gets blocked by the expose. (See the section on ports below).
+    EXPOSE 5000
 
     # command to run on container start
     CMD [ "python", "./run.py" ]
@@ -71,6 +75,26 @@ Creating a docker image
     
     # Build and run together
     docker build -t myimage . && docker run -it myimage bash
+
+PORTS
++++++++
+To publish **all** ports, use: `-P`, which will randomly assign all exposed ports to a port
+
+.. code-block:: bash
+
+    docker run -it -P myimage
+    
+To expose **specific** ports, use `-p 5000:9999`, which will forward port 9999 (on the docker) to your pc's 5000
+
+.. code-block:: bash
+
+    docker run -it -p 5000:9999 myimage
+
+- **NOTE**: if you are using `EXPOSE`, then do **NOT** forward it to the exported port, and always expose to another port.
+  (I think EXPOSE uses that port, so you cant re-use it).
+    - e.g. if you have `EXPOSE 5000`, then your local one shouldn't be 5000, but the docker one can be
+    - e.g. OKAY: `-b
+
 
 ENTRYPOINT vs CMD
 ++++++++++++++++++
