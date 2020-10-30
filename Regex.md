@@ -12,7 +12,7 @@ To check for a group of characters, as a single character, then use `[]`, e.g.
 
 ## Non-capturing group `(?:)`
 
-Similar to character classes, but used to group a bunch of leters into a group.
+Similar to character classes, but used to group a bunch of letters / character classes into a group.
 
 e.g. `(?:H[ae]l+o) (.+) how are you` will match `Bob` for both:
   - Halo Bob how are you
