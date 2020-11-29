@@ -20,9 +20,11 @@ e.g. `(?:H[ae]l+o) (.+) how are you` will match `Bob` for both:
   
 #### When its useful
   
-Useful when character classes aren't good enough, or you can't include in character class, e.g.
-capture the numbers (15) seconds
+Useful when character classes aren't good enough, or you can't include in character class.
+
 `[^a-zA-Z]([0-9]+)s(?:[^a-zA-Z]|$)`, the end matches either a non- alpha letter OR the end of line.
+
+e.g. capture the numbers `15`
 
 - `Google AU: Dogue 15s`
 - `Bobs House 15s`
