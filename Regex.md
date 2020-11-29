@@ -26,6 +26,6 @@ Useful when character classes aren't good enough, or you can't include in charac
 
 e.g. capture the numbers `15`
 
-- `Google AU: Dogue 15s`
+- `Google AU: Dogue 15s something`
 - `Bobs House 15s`
 
