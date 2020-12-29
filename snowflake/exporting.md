@@ -1,6 +1,7 @@
 # Exporting (Unloading) files locally:
 
-## Pre-requsite**: Install `snowsql` to use the `get` command (otherwise the final step won't work)
+## Pre-requsite (SnowSQL):
+Install `snowsql` to do the last step - use the `get` command (otherwise the actual exporting won't work)
 
 ### Parquet
 1) Set the DB/Schema
