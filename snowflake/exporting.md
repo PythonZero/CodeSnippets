@@ -35,7 +35,7 @@ overwrite = true; // Only use it if you're overwriting a previous export with th
 list @parquet_stage;
 ```
 
-6) Download the file locally (This step will fail if you're not using snowsql
+6) Download the file locally (This step will fail if you're not using snowsql)
 
 ```
 get @parquet_stage/unload/parquet_ file:///Users/<local>/Documents/snowsql/<destination>;
