@@ -1,7 +1,8 @@
 # Exporting (Unloading) files locally:
 
-**Pre-requsite**: Install `snowsql` to use the `get` command (otherwise the final step won't work)
+## Pre-requsite**: Install `snowsql` to use the `get` command (otherwise the final step won't work)
 
+### Parquet
 1) Set the DB/Schema
 
 ```USE DATABASE "<DB_NAME>"; USE SCHEMA "<SCHEMA_NAME>";```
@@ -37,4 +38,22 @@ list @parquet_stage;
 
 ```
 get @parquet_stage/unload/parquet_ file:///Users/<local>/Documents/snowsql/<destination>;
+```
+
+### CSV
+
+```
+USE DATABASE "<DB_NAME>"; USE SCHEMA "<SCHEMA_NAME>";
+create or replace file format my_csv_unload_format
+  type = 'CSV'
+  field_delimiter = '|';
+  
+create or replace stage my_unload_stage
+  file_format = my_csv_unload_format;
+
+copy into @my_unload_stage/unload/ from  "<DB_NAME>"."<SCHEMA_NAME>"."<TABLE_NAME>";
+
+list @my_unload_stage;
+
+get @my_unload_stage/unload/data_0_0_0.csv.gz file:///Users/<user>/Documents/snowsql
 ```
