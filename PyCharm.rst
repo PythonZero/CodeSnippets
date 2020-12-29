@@ -13,10 +13,10 @@ Adding anaconda to Pycharm's terminal
 Remote Debugging
 ---------------------------------------
 
-1) In a separate terminal open a port, e.g. `12345`
+1) In a separate terminal open a port, e.g. ``12345``
 ``ssh -R 12345:localhost:12345 user@ip-address``
     
-2) Create a remote debug server with IDE Host Name `localhost` and port `12345`
+2) Create a remote debug server with IDE Host Name ``localhost`` and port ``12345``
 
 3) Copy and paste the import statement at the top of the code
 
