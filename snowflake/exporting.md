@@ -5,7 +5,7 @@ Install `snowsql` to be able to do step 6 below. Steps 1-5 can be done on the UI
   * Change the settings (Default user/pwd/username/schema/..) by doing `vim ~/.snowsql/config`
   
 ### Parquet
-1) Set the DB/Schema
+1) Set the DB/Schema (ideally use a DEV db/schema)
 
 ```USE DATABASE "<DB_NAME>"; USE SCHEMA "<SCHEMA_NAME>";```
 
