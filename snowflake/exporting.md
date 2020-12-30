@@ -45,7 +45,7 @@ get @parquet_stage/unload/parquet_ file:///Users/<local>/Documents/snowsql/<dest
 #### Check file schema 
 
 1) `import pyarrow.parquet as pq`
-2) `table = pq.read_table("/Users/<local>/Documents/snowsql/<destination>")
+2) `table = pq.read_table("/Users/<local>/Documents/snowsql/<destination>")`
 3) `print(table.schema)`
 
 ### CSV
