@@ -41,3 +41,4 @@ def init_spark_session():
 if __name__ == '__main__':
     spark, sc = init_spark_session()
 ```
+4) Test with `spark.sql("SHOW tables").toPandas()`
