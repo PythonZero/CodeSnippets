@@ -1,8 +1,9 @@
 # Exporting (Unloading) files locally:
 
 ## Pre-requsite (SnowSQL):
-Install `snowsql` to do the last step - use the `get` command (otherwise the actual exporting won't work)
-
+Install `snowsql` to be able to do step 6 below. Steps 1-5 can be done on the UI
+  * Change the settings (Default user/pwd/username/schema/..) by doing `vim ~/.snowsql/config`
+  
 ### Parquet
 1) Set the DB/Schema
 
