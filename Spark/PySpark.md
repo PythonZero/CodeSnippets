@@ -44,6 +44,7 @@ if __name__ == '__main__':
 4) Test with `spark.sql("SHOW tables").toPandas()`
 
 ### Adding python modules
+* i.e. if you need to use a function from a module inside a UDF
 ```python
 def _zip_module(name="module_name") -> None:
     """Creates a zip of the module, allowing the functions to
