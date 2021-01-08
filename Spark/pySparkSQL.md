@@ -12,10 +12,10 @@ UNION ALL SELECT 'Bob', 6)
 SELECT * FROM (
 FROM  mpsub2
 map mp_user, day
---using 'python {PATH_TO_DAYS_IN_MP_PY_FILE}'  # e.g. mapping using a file
--- as mp_user bigint, x int, days_in_mp int. # the output
-using 'ls'
-as mp_user string
+--using 'python {PATH_TO_DAYS_IN_MP_PY_FILE}'  -- <- e.g. mapping using a file
+-- as mp_user bigint, x int, days_in_mp int. -- <- the output
+using 'ls' -- <- Runs ls
+as mp_user string <- Returns one row per ls item found
 )
 
 """
