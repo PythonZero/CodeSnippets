@@ -44,3 +44,5 @@ Remember to:
 ```python
   spark_context.addPyFile(PATH_TO_DAYS_IN_MP_PY_FILE)
 ```
+* The file with then be placed in the relative directory of where the spark workers are running
+  (no need to specify the path if calling that file directly).
