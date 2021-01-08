@@ -34,7 +34,7 @@ def init_spark_session():
         .enableHiveSupport() \
         .getOrCreate()
     spark_session.sparkContext.setLogLevel('WARN')
-    spark_session.sql(f"use ads_poststage")
+    spark_session.sql(f"use db_name")
     return spark_session, spark_context
 
 
@@ -42,3 +42,20 @@ if __name__ == '__main__':
     spark, sc = init_spark_session()
 ```
 4) Test with `spark.sql("SHOW tables").toPandas()`
+
+### Adding python modules
+```python
+def _zip_module(name="module_name") -> None:
+    """Creates a zip of the module, allowing the functions to
+    be importable within the pyspark worker modules.
+
+    :param name: Path to folder inside the root folder
+    """
+    path_to_folder = os.path.join(ROOT_DIR, name)
+    shutil.make_archive(path_to_folder, "zip", ROOT_DIR, name)
+
+# After creating the spark_context and spark_session
+_zip_module("my_py_module")
+spark_context.addPyFile(os.path.join(ROOT_DIR, "module_name.zip"))
+spark_context.addPyFile(PATH_TO_DAYS_IN_MP_PY_FILE)
+```
