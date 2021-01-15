@@ -60,3 +60,25 @@ _zip_module("my_py_module")
 spark_context.addPyFile(os.path.join(ROOT_DIR, "module_name.zip"))
 spark_context.addPyFile(PATH_TO_DAYS_IN_MP_PY_FILE)
 ```
+
+## Debugging pyspark (spark-submit) in pycharm
+
+## For a remote machine
+1) Port Forward a port from the ssh machine to yours (e.g. port 12345)
+```ssh -R 12345:localhost:12345 user@192.168.0.1```
+
+2) In PyCharm -> top right -> click the python runner, e.g. -> Edit Configurations 
+3) Click the "+" icon -> Python Debug Server
+4) Set the IDE host name to `localhost`, and the port to the port assigned in step 1 (e.g. 12345).
+   Give it a nice name, e.g. `debug-port-12345`
+5) On the running machine, run `pip install pydevd-pycharm`
+6) At the top of your code, add these two lines
+```python
+import pydevd_pycharm
+pydevd_pycharm.settrace('localhost', port=$SERVER_PORT, stdoutToServer=True, stderrToServer=True)
+```
+7) Run your code on the remote machine, e.g. through spark-submit or whatever
+8) **THEN** start the python debug server you made in step 4 by pressing the bug button
+   * Note: if you run the debug server before starting your code, it may not connect
+9) You will get a prompt, click auto-detect the code. If that fails, click download from source
+10) Happy debugging!
