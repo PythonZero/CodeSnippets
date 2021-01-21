@@ -223,7 +223,26 @@ You can then use those fixtures without needing to import them, e.g.
     # SETTING UP GCP BUCKETS AND DATASET
     # Hello
     # TEARING DOWN GCP BUCKETS AND DATASET
+   
+   
+
+Mocking
+=================================
+
+.. code-block:: python
     
+    from mock import Mock, MagicMock  # one of the two, MagicMock also allows using 
+    mocked_args = mock.Mock(arg1=3000)
+    mocked_args.a = 1
+    mocked_args.b = [1, 2, 3]
+    print(mocked_args.a) # 1
+    print(len(mocked_args.b)) # [1,2,3]
+    
+    # MagicMock vs Mock, has some methods built in, e.g.
+    len(mock.MagicMock(x=1, y=2))  # returns 0
+    len(mock.Mock(x=1, y=2))  # errors
+    
+
 
 Ignoring doctests
 ==================================
