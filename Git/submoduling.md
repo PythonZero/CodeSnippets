@@ -22,8 +22,8 @@ To delete the submodule, delete the offending folder, and in the root folder `.g
 
 To use a specific branch for the submodule:
 
-    1) cd into the folder with the submodule, e.g. `project/module_list/my_submoduled_repo`
-    2) `git pull`
-    3) `git branch -a` to list all branches
-    4) `git checkout <branch_name>`
+  1) cd into the folder with the submodule, e.g. `project/module_list/my_submoduled_repo`
+  2) `git pull`
+  3) `git branch -a` to list all branches
+  4) `git checkout <branch_name>`
 
