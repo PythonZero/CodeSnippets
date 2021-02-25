@@ -20,7 +20,8 @@ git submodule update --init <repo_name>
 
 To delete the submodule, delete the offending folder, and in the root folder `.gitmodules` delete the entry
 
-To use a specific branch for the submodule
+To use a specific branch for the submodule:
+
     1) cd into the folder with the submodule, e.g. `project/module_list/my_submoduled_repo`
     2) `git pull`
     3) `git branch -a` to list all branches
