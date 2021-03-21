@@ -19,8 +19,15 @@ Joao,1,Y,2021-01-01 14:00,167289225369306298,"""
         "impressions": "Int64",
         "spend_usd": "float",
     }
-    df = pd.read_csv(io.StringIO(unprocessed_file_contents), dtype=pandas_dtypes)  # broken
-    # df = pd.read_csv(io.StringIO(unprocessed_file_contents), header=None, skiprows=1, dtype=pandas_dtypes)  # works
-    assert df.iloc[3,4] == 167289225369306298
+    df = pd.read_csv(io.StringIO(unprocessed_file_contents), dtype=pandas_dtypes)  # 1 - broken
+    # df = pd.read_csv(io.StringIO(unprocessed_file_contents), header=None, skiprows=1, dtype=pandas_dtypes)  # 2 - still broken
+    assert df.iloc[3,4] == 167289225369306298  # 1 - fails, 2 - passes
+    assert int(df.iloc[3,4]) == 167289225369306298  # 1 - fails, 2 - fails
+    
+    # how to make it work
+    df = pd.read_csv(io.StringIO(unprocessed_file_contents), dtype=object)  
+    df.spend_usd = df.spend_usd.astype("Int64")
+    assert int(df.iloc[3,4]) == 167289225369306298  # Passes
+
     
 ```
