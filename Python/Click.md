@@ -1,6 +1,7 @@
 # Click for Python
 
-Basically example 1 does the same as example 2, but with less code
+Command line argument parser for python
+- Basically example 1 does the same as example 2, but with less code
 
 ```python
 """Click example"""
@@ -45,7 +46,7 @@ if __name__ == '__main__':
     main()
 ```
 
-Usage:
+## Usage:
 
 ```bash
 python __main__.py hello
@@ -60,7 +61,7 @@ python __main__.py
 # - whatsup
 ```
 
-Requiring arguments:
+## Requiring arguments:
 ```python
 @click.command()
 @click.option('--count', default=1, help='number of greetings')
@@ -68,4 +69,21 @@ Requiring arguments:
 def hello(count, name):
     for x in range(count):
         click.echo('Hello %s!' % name)
+```
+
+## Example of callbacks in arguments
+```python
+def print_version(ctx, param, value):
+    if not value or ctx.resilient_parsing:
+        return
+    click.echo('Version 1.0')
+    ctx.exit()
+
+@click.command()
+@click.option('--version', is_flag=True, callback=print_version, 
+              expose_value=False, is_eager=True)
+def hello():
+    click.echo('Hello World!')  # same as print, but allows work in py2 and py3
+    
+# callback allows you to change the execution order once the argument is processed.
 ```
