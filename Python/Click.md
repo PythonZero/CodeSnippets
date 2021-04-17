@@ -91,7 +91,7 @@ def yo(version):
 # callback allows you to change the execution order once the argument is processed.
 
 ```bash
->>> python __main__.py yo
+> python __main__.py yo
 The version is None
 Yoooo world!
 1
