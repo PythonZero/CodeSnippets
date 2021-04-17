@@ -47,7 +47,7 @@ if __name__ == '__main__':
 
 Usage:
 
-```
+```bash
 python __main__.py hello
 # hello
 
@@ -61,7 +61,7 @@ python __main__.py
 ```
 
 Requiring arguments:
-```
+```python
 @click.command()
 @click.option('--count', default=1, help='number of greetings')
 @click.argument('name')
