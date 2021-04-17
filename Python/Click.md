@@ -87,13 +87,17 @@ def yo(version):
     print(f"the version is {version}")
     click.echo("Yoooo world!")  # same as print, but allows work in py2 and py3
     print(x)
-    
+```
 # callback allows you to change the execution order once the argument is processed.
-# > python __main__.py yo
-# The version is None
-# Yoooo world!
-# 1
 
-# > python __main__.py yo --version
-# Version 1.0  # then exits.
+```bash
+>>> python __main__.py yo
+The version is None
+Yoooo world!
+1
+```
+
+```bash
+> python __main__.py yo --version
+Version 1.0  # then exits.
 ```
