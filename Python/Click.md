@@ -45,3 +45,27 @@ if __name__ == '__main__':
     main()
 ```
 
+Usage:
+
+```
+python __main__.py hello
+# hello
+
+python __main__.py whatsup
+# whatsup
+
+python __main__.py
+# here are the commands you can use
+# - hello
+# - whatsup
+```
+
+Requiring arguments:
+```
+@click.command()
+@click.option('--count', default=1, help='number of greetings')
+@click.argument('name')
+def hello(count, name):
+    for x in range(count):
+        click.echo('Hello %s!' % name)
+```
