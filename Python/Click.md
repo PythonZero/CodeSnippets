@@ -88,7 +88,8 @@ def yo(version):
     click.echo("Yoooo world!")  # same as print, but allows work in py2 and py3
     print(x)
 ```
-# callback allows you to change the execution order once the argument is processed.
+
+callback allows you to change the execution order once the argument is processed.
 
 ```bash
 > python __main__.py yo
