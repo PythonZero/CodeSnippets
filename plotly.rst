@@ -32,7 +32,8 @@ Plot multiple dfs on a multiple x,y:
     iplot(cf.subplots([df1.figure(), 
                  df2.figure(x=['dttm'], y=['Base', 'Peak', 'Off Peak'])
                 ], shape=(2, 1)))  
-    # it used to be cf.subplots(...).iplot() # now it's iplot(cf.subplots(..))
+    # it used to be cf.subplots(...).iplot() 
+    # now it's iplot(cf.subplots(..))
                 
 
 Plot multiple dfs on a single x, y:
