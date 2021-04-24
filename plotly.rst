@@ -23,7 +23,7 @@ Modify config of iplot
 
 
 
-Plot multiple subplots on a single plot:
+Plot multiple dfs on a multiple x,y:
 =======================================
 
 .. code-block:: python
