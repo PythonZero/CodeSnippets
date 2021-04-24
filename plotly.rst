@@ -46,8 +46,9 @@ Plot multiple dfs on a single x, y:
 
     fig1 = df1.iplot(asFigure=True)
     fig2 = df2.iplot(x=['dttm'], y=['Base', 'Peak', 'Off Peak'], asFigure=True)
-    fig1['data'].extend(fig2['data'])
-    iplot(fig1) # or plot(fig1) -> saves to file temporarily.
+    # fig1['data'].extend(fig2['data'])  # used to work, but now it's a tuple
+    # iplot(fig1) # or plot(fig1) -> saves to file temporarily.
+    iplot([*fig1["data"], *fig2["data"]])
 
 Save to html
 =========================================
