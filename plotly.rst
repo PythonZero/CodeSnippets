@@ -65,7 +65,7 @@ Save to html
     
 
 
-Adding text 
+Adding text / label on a point
 =========================================
 
 .. code-block:: python
