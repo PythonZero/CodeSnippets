@@ -62,3 +62,18 @@ Save to html
     
     fig = df.iplot(asFigure=True)
     plot(fig,filename="df_name.html")
+    
+
+
+Adding text 
+=========================================
+
+.. code-block:: python
+
+
+    fig = df.iplot(asFigure=True)
+    fig.update_traces(texttemplate="£%{y:.3s}", textposition="outside") 
+    # for formatting options, see https://github.com/d3/d3-format
+    # documentation here: https://plotly.github.io/plotly.py-docs/generated/plotly.graph_objects.html
+    fig.update_layout(uniformtext_minsize=10, uniformtext_mode="show")
+    
