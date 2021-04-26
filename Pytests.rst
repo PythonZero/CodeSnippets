@@ -30,7 +30,6 @@ Functions in same File
 
 .. code-block:: python
     
-    ## PythonPath to A:   BasePath.Module.SubModule.A
     # File A:
     def bar(): 
         return 5
