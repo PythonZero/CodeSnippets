@@ -4,11 +4,14 @@ Pytest
 MonkeyPatching
 ================
 
+Functions in different Files
++++++++++++++++++++++++++++++
 .. code-block:: python
     
     ## PythonPath to A:   BasePath.Module.SubModule.A
     # File A:
-    def bar(): return 5
+    def bar(): 
+        return 5
 
     # File B:
     def add_two_numbers(x):
@@ -18,9 +21,35 @@ MonkeyPatching
     def test_add_two_numbers(monkeypatch):
       def new_bar(): print('patched'); return 10
       print(add_two_numbers(3)) # Output = 8
-      monkeypatch.setattr('BasePath.Module.SubModule.B.bar',  # < -- IMPORTANT, you load it from B.py not A.py!!!!!!!
-      new_bar)
+      monkeypatch.setattr('BasePath.Module.SubModule.B.bar', new_bar) # < -- IMPORTANT, you load it from B.py not A.py!!!!!!!
       print(add_two_numbers(3)) # Prints 'Patched' & Outputs = 13
+
+
+Functions in same File
+++++++++++++++++++++++
+
+.. code-block:: python
+    
+    ## PythonPath to A:   BasePath.Module.SubModule.A
+    # File A:
+    def bar(): 
+        return 5
+    def add_two_numbers(x):
+      return x + bar()
+    
+    # test file
+    import file_a  # <-- NOT `from file_a import add_two_numbers`. **MUST** import it this way 
+    
+    
+    def test_add_two_numbers(monkeypatch):
+      def new_bar(): print('patched'); return 10
+      monkeypatch.setattr('filea.bar', new_bar) # < -- IMPORTANT, must do `filea.xx`
+      print(file_a.add_two_numbers(3)) # Prints 'Patched' & Outputs = 13
+
+See stackoverflow_ for more details
+
+.. _stackoverflow: https://stackoverflow.com/questions/31306080/pytest-monkeypatch-isnt-working-on-imported-function
+
       
 Patching a default argument
 +++++++++++++++++++++++++++++++
