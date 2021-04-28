@@ -20,3 +20,9 @@ SHOW STAGES IN DATABASE "database_name"
 SHOW STAGES IN SCHEMA "schema_name"
 
 ```
+
+## Identify if table is native snowflake or not
+
+If the table has a `VALUES` column, then it's an external table. Otherwise its an internal table.
+Internal tables are stored and managed by snowflake in S3 buckets.
+If it's an external table, then it has a stage associated it, and can be discovered by the "Get the stages" section.
