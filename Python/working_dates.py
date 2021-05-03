@@ -5,7 +5,6 @@ import workdays
 from dateutil.relativedelta import relativedelta
 import holidays
 
-# Tests are below
 
 def _get_england_holidays(start_date, number_of_days: int):
     end_year = (
@@ -49,14 +48,14 @@ def get_working_days_between_dates(
     num_days = (end_date - start_date).days
     holidays = _get_england_holidays(start_date, num_days)
     working_days = []
-    for i in range(num_days + 1):
-        day = start_date + relativedelta(days=i)
+    for day_increment in range(num_days + 1):
+        day = start_date + relativedelta(days=day_increment)
         is_workday = workdays.networkdays(day, day, holidays)
         if is_workday:
             working_days.append(day.date())
     return working_days
 
-# Start of tests
+
 
 def test_get_working_days_in_month():
     expected_working_days = {
