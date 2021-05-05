@@ -15,7 +15,7 @@ CREATE EXTERNAL TABLE schema2.table_name(
        EVENT_VERSION NUMBER(38,0) AS NULL
 )
 partition by (XDAY)
-with location=@PRIVATE_NORMAL_CHAT_STAGE/
+with location=@THE_NAME_OF_THE_STAGE/
     file_format=(TYPE=CSV SKIP_HEADER=1 FIELD_OPTIONALLY_ENCLOSED_BY='\"' COMPRESSION=None) ;
 
 ```
