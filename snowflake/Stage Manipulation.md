@@ -18,7 +18,8 @@ ALTER EXTERNAL TABLE  "db"."schema"."ZENDESK_USERS" REFRESH;
 SHOW STAGES IN DATABASE "database_name"
 # or
 SHOW STAGES IN SCHEMA "schema_name"
-
+# or
+SHOW STAGES LIKE '%my_table%' IN SCHEMA "db"."schema"
 ```
 
 ## Identify if table is native snowflake or not
