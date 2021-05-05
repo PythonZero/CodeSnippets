@@ -30,3 +30,9 @@ SHOW STAGES LIKE '%my_table%' IN SCHEMA "db"."schema"
 -  If it's an external table, then it has a stage associated it
   * the stage name can be found by the "Get the stages" section.
 
+## Get the DDL for the table
+```sql 
+USE DATABASE db;
+USE SCHEMA my_schema;
+SELECT GET_DDL('TABLE', 'TABLE_NAME')
+```
