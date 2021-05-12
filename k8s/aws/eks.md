@@ -30,4 +30,5 @@
         - name: AWS_DEFAULT_REGION
           value: eu-west-1
     ```
-    
+
+3) In `k9s`, attach to your shell using `s` NOT `a`
