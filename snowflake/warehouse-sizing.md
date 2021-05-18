@@ -1,3 +1,6 @@
+# Upgrade your warehouse, Create it, and suspend it
+This will ensure 0 downtime and no extra costs, just faster execution
+as each minute on a large machine is very expensive.
 ```sql
 USE DATABASE ANALYTICS_PROD;
 USE ROLE SYSADMIN;
