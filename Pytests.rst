@@ -16,6 +16,11 @@ Another Way to Patch (with conftest pattern)
            return arg1 + arg2
        # note how file1 is not a string,the other examples use strings
        monkeypatch(file1, "some_specific_function_in_item_getter", mock_some_specific_function_in_item_getter)
+   
+   # test_utils.py
+   def test_something(mock_item_getter):
+       # write your test as normal
+       pass
 
 Functions in different Files
 +++++++++++++++++++++++++++++
