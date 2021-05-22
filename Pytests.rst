@@ -4,6 +4,19 @@ Pytest
 MonkeyPatching
 ================
 
+Another Way to Patch (with conftest pattern)
+++++++++++++++++++++++++++++++++++++++++++++
+
+.. code-block:: python
+    
+   import file1
+   # conftest.py
+   def mock_item_getter(monkeypatch):
+       def mock_some_specific_function_in_item_getter(arg1, arg2):
+           return arg1 + arg2
+       # note how file1 is not a string,the other examples use strings
+       monkeypatch(file1, "some_specific_function_in_item_getter", mock_some_specific_function_in_item_getter)
+
 Functions in different Files
 +++++++++++++++++++++++++++++
 .. code-block:: python
@@ -49,7 +62,7 @@ See stackoverflow_ for more details
 
 .. _stackoverflow: https://stackoverflow.com/questions/31306080/pytest-monkeypatch-isnt-working-on-imported-function
 
-      
+     
 Patching a default argument
 +++++++++++++++++++++++++++++++
 If you want to patch for example `x = 10` into `x = 100`, you can't patch `x`, must patch the function
