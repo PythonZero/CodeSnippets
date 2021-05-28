@@ -300,6 +300,7 @@ Mocking Datetime
 ++++++++++++++++++++
 
 .. code-block:: python
+
     class MockedDatetime:
         @classmethod
         def now(cls):
