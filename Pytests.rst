@@ -307,7 +307,7 @@ Mocking Datetime
             return datetime(2021, 5, 2)
 
     # change datetime.now()'s date
-    monkeypatch.setattr("file1.datetime", MockedDatetime)
+    monkeypatch.setattr("root.folder.file1.datetime", MockedDatetime)
 
     
 
