@@ -298,6 +298,7 @@ Mocking
 
 Mocking Datetime
 ++++++++++++++++++++
+
 .. code-block:: python
     class MockedDatetime:
         @classmethod
