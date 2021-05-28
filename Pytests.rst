@@ -303,7 +303,7 @@ Mocking Datetime
 
     class MockedDatetime:
         @classmethod
-        def now(cls):
+        def now(cls, *args, **kwargs):
             return datetime(2021, 5, 2)
 
     # change datetime.now()'s date
