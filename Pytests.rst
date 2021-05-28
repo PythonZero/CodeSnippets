@@ -277,16 +277,36 @@ Mocking
 
 .. code-block:: python
     
-    from mock import Mock, MagicMock  # one of the two, MagicMock also allows using 
+    from mock import Mock, MagicMock  # 1 of the 2, but prefer MagicMock over Mock as it has special methods
+    
+    # Mocking class properties
     mocked_args = mock.Mock(arg1=3000)
     mocked_args.a = 1
     mocked_args.b = [1, 2, 3]
     print(mocked_args.a) # 1
     print(len(mocked_args.b)) # [1,2,3]
     
+    # Mocking class methods
+    mocked_args.my_func.return_value = ["file1", "file2"]
+    assert mocked_args.my_func("any", "number", "of", "arguments", 123) == ["file1", "file2"]
+    
+    
     # MagicMock vs Mock, has some methods built in, e.g.
     len(mock.MagicMock(x=1, y=2))  # returns 0
     len(mock.Mock(x=1, y=2))  # errors
+
+
+Mocking Datetime
+++++++++++++++++++++
+.. code-block:: python
+    class MockedDatetime:
+        @classmethod
+        def now(cls):
+            return datetime(2021, 5, 2)
+
+    # change datetime.now()'s date
+    monkeypatch.setattr("file1.datetime", MockedDatetime)
+
     
 
 
