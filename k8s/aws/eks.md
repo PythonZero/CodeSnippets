@@ -1,6 +1,7 @@
 # Connecting to EKS (Elastic Kubernetes Cluster)
 
-1) Connect to the eks cluster 
+1) Connect to the eks cluster (only needs to be done the first time)
+
 ```bash
 aws eks update-kubeconfig --name <clustername> --region <region>
 ```
