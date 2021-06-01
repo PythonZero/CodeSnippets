@@ -80,3 +80,10 @@ helm upgrade --install airflow . --namespace my-namespace-prod10 --values \
 /home/user/PROJECTS/values-config/MY-HELM-CHART.yaml --set environment.branch=develop
 ```
     
+## Running an airflow dag
+1. `k9s`
+2. Go to the airflow-webserver in your namespace
+3. press `shift+f` to portforward to `localhost:8080`
+4. Access the airflow UI in your browser at `localhost:8080`
+
+
