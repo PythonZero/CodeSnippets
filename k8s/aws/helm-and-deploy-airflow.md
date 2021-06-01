@@ -50,8 +50,8 @@ docker push ${REGISTRY_URL}:${VERSION_TAG}
 ```
 
 ## Get helm config
-
-1. Run
+(see the #updating-helm-charts at the top for more info)
+1. Get the existing chart
 
 ```
 helm get values airflow -n airflow
@@ -62,7 +62,7 @@ helm get values airflow -n airflow
 
 
 ## Deploy to own namespace
-1. 
+1. Create your namespace
 ```
 kubectl create namespace my-name-prod10 
 ```
