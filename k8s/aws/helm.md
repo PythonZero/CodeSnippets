@@ -1,4 +1,4 @@
-Updating helm charts
+# Updating helm charts
 
 1. Get existing helm chart 
 
