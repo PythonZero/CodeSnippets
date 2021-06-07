@@ -77,6 +77,11 @@ Df is not empty with optional error message arg
 
 .. code-block:: python
 
+        import functools
+        from inspect import isfunction
+        import pandas as pd
+        # from my_file import InputValidation
+
         def validate_df_is_not_empty(error_msg: Union[str, Callable] = None) -> Callable:
             """Wrapper that raises a ValidationError if the output dataframe is empty.
             Expects a function with an output of a DataFrame. Takes an optional error message
