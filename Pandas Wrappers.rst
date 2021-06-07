@@ -82,16 +82,16 @@ Df is not empty with optional error message arg
         import pandas as pd
         # from my_file import InputValidation
 
-        def validate_df_is_not_empty(error_msg: Union[str, Callable] = None) -> Callable:
+        def df_output_must_not_be_empty(error_msg: Union[str, Callable] = None) -> Callable:
             """Wrapper that raises a ValidationError if the output dataframe is empty.
             Expects a function with an output of a DataFrame. Takes an optional error message
 
-            >>> @validate_df_is_not_empty("the dataframe after step 'do_something' is empty")
+            >>> @df_output_must_not_be_empty("the dataframe after step 'do_something' is empty")
             ... def do_something(args, kwargs):
             ...     ...
             ...     return df
 
-            >>> @validate_df_is_not_empty
+            >>> @df_output_must_not_be_empty
             ... def process_dataframe(args, df):
             ...     return df
 
@@ -119,17 +119,18 @@ Df is not empty with optional error message arg
 
             # Error message was passed, call the outer decorator
             return outer_decorator
+
             
 Test:
 
 .. code-block:: python
 
-        def test_validate_df_is_not_empty__errors_because_its_empty():
-            @validate_df_is_not_empty
+        def test_df_output_must_not_be_empty__errors_because_its_empty():
+            @df_output_must_not_be_empty
             def example1_without_msg():
                 return pd.DataFrame()
 
-            @validate_df_is_not_empty("Custom Message")
+            @df_output_must_not_be_empty("Custom Message")
             def example2_with_msg():
                 return pd.DataFrame()
 
@@ -141,12 +142,12 @@ Test:
                 example2_with_msg()
 
 
-        def test_validate_df_is_not_empty__doesnt_error_if_df_is_not_empty():
-            @validate_df_is_not_empty
+        def test_df_output_must_not_be_empty__doesnt_error_if_df_is_not_empty():
+            @df_output_must_not_be_empty
             def example3_without_msg_no_error():
                 return pd.DataFrame({"x": ["a", "b", "c"]})
 
-            @validate_df_is_not_empty("Custom Message")
+            @df_output_must_not_be_empty("Custom Message")
             def example4_with_msg_no_error():
                 return pd.DataFrame({"x": ["a", "b", "c"]})
 
