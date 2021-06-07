@@ -2,6 +2,8 @@
 
 ```bash
 psql -h 192.168.0.1 -p 5423 -d database_name -U username -W   # -W creates password prompt
+# if you don't want to type your password eachtime
+export PGPASSWORD=yourpassword
 ```
 
 ## Commands
