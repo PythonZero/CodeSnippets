@@ -13,7 +13,7 @@ helm get values airflow -n airflow
 4. SUPER IMPORTANT - change directory INTO the folder with the Charts.yaml file, e.g.
 
 ```
-cd /home/user/PROJECTS/helm-charts/airflow/deployment
+cd /home/user/PROJECTS/helm-charts/airflow-deployment
 ```
 
 5. Deploy the updated helm charts 
