@@ -11,6 +11,7 @@ psql -h 192.168.0.1 -p 5423 -d database_name -U username  # no -W
 ## Commands
 
 - `\l` - list available databases
-- `\dt` - list available tables 
-    * `no relations found` -> no tables
+- `\dt` - list all relational tables 
+    * `no relations found` -> no relational tables
+- `\dt+ *` - list ALL tables
 - `\c <db_name>` - changes to that database
