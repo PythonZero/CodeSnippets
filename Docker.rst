@@ -55,6 +55,9 @@ Creating a docker image
     # In the folder with the Dockerfile, run the command to create the image 
     # -t = tag, so give it a unique name (otherwise it will overwrite the old names)
     docker build -t myimage .
+   
+    # Or (won't work without the . as it expects one argument, the context folder (like the PYTHONPATH) )
+    docker build -t myimage -f path/to/Dockerfile .
     
     # Check its there
     docker image ls
