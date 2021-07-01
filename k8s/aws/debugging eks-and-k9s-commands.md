@@ -32,3 +32,12 @@
     ```
 
 3) In `k9s`, attach to your shell using `s` NOT `a`
+
+## k9s commands
+
+* Only view your namespace:
+    - press `shift + ;`
+    - type `namespace` (it will then list all the available namespaces)
+    - select your namespace (e.g. `airflow`)
+    - press enter
+    - you should now only see pods within your namespace
