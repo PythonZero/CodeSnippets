@@ -6,7 +6,7 @@ from tensorflow.keras.layers import Dense, Flatten, Conv2D
 from tensorflow.keras import Model
 
 tf.random.set_seed(1)  # set random seed so that we can compare results
-print("is exeucting eagerly", tf.executing_eagerly())  # default is eager execution
+print("is executing eagerly", tf.executing_eagerly())  # default is eager execution
 
 mnist = tf.keras.datasets.mnist
 
