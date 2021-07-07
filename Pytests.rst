@@ -295,6 +295,23 @@ Mocking
     len(mock.MagicMock(x=1, y=2))  # returns 0
     len(mock.Mock(x=1, y=2))  # errors
 
+Mocking Properties
+++++++++++++++++++++++
+
+.. code-block:: python
+
+    from mock import Mock, MagicMock, PropertyMock
+    from my_project.ml import mlflow_actions
+    
+    mocked_mlflow = MagicMock()
+    mocked_mlflow.start_run = PropertyMock()  # add start_run/end_run as properties
+    mocked_mlflow.end_run = PropertyMock()
+    
+    monkeypatch.setattr(mlflow_actions, "mlflow", mocked_mlflow)  # patch it
+    
+    mocked_mlflow.start_run.assert_called_once()  # check it's been called
+    mocked_mlflow.end_run.assert_not_called()  # check it's not been called
+
 
 Mocking Datetime
 ++++++++++++++++++++
