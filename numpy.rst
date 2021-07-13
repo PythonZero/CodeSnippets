@@ -26,7 +26,7 @@ Incremental filling of an array
     >>> df = pd.DataFrame(columns=["a", "b", "c", "d", "e", "f"], index=["row1", "row2", "row3"])
     
     # Fill the dataframe with ascending values
-    >>> df.loc[:] = np.divide(np.arange(df.shape[0] * df.shape[1]), df.shape[0] * df.shape[1]).reshape(df.shape)
+    >>> df.loc[:] = np.arange(df.shape[0] * df.shape[1]).reshape(df.shape)
 
     
     >>> df
