@@ -1,4 +1,4 @@
-# Authenticate as yourself
+### Authenticate as yourself
 
 ```bash
 gcloud auth application-default login
@@ -10,7 +10,7 @@ Once you've authenticated as yourself, you can use the account credentials it ge
   * Windows - `C:\Users\your_username\AppData\Roaming\gcloud`)
 
 
-Debug code
+### Debug code
 ```
 ssh -i "path/to/.pub" -R 12345:localhost:12345 ubuntu:192.168.0.1
 ```
