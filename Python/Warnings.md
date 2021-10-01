@@ -1,6 +1,28 @@
 # Warnings
 
 
+## Simple warnings (See context manager below)
+
+```python
+import warnings
+
+def suppressed_warning_function():
+     with warnings.catch_warnings():
+         warnings.simplefilter("ignore") # this alone captures all warnings. Need to delete the simplefilter below to ensure this behavior
+         warnings.simplefilter(action='ignore', category=RuntimeWarning)  # this filters to only capture RuntimeWarning, other warnings are still raised
+         warnings.warn("A custom warning", category=UserWarning)
+         warnings.warn("A runtime warning", category=RuntimeWarning)
+
+
+def test_warning_stuff():
+    with pytest.warns(None) as raised_warnings:  # Record warnings
+        suppressed_warning_function()
+
+# Check RuntimeWarnings are suppressed but other warnings are raised
+assert len(raised_warnings.list) == 1
+assert raised_warnings.list[0].category == UserWarning
+```
+
 ## Context Manager
 
 ```python
