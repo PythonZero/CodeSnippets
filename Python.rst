@@ -57,7 +57,8 @@ Warnings
    import warnings
    
    def suppressed_warning_function():
-        with warnings.catch_warnings():  # this alone captures all warnings. Need to delete the simplefilter below to ensure this behavior
+        with warnings.catch_warnings():  
+            warnings.simplefilter("ignore") # this alone captures all warnings. Need to delete the simplefilter below to ensure this behavior
             warnings.simplefilter(action='ignore', category=RuntimeWarning)  # this filters to only capture RuntimeWarning, other warnings are still raised
             warnings.warn("A custom warning", category=UserWarning)
             warnings.warn("A runtime warning", category=RuntimeWarning)
