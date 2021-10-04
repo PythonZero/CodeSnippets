@@ -48,26 +48,3 @@ as it imports from the module `so`, so when you import `so`, it imports `filesto
     from ..config import OFFICE365_PATH 
     from ..funcs import make_folders_if_not_exist, return_path
 
-
-Warnings
-=================
-
-.. code-block:: python
-    
-   import warnings
-   
-   def suppressed_warning_function():
-        with warnings.catch_warnings():  
-            warnings.simplefilter("ignore") # this alone captures all warnings. Need to delete the simplefilter below to ensure this behavior
-            warnings.simplefilter(action='ignore', category=RuntimeWarning)  # this filters to only capture RuntimeWarning, other warnings are still raised
-            warnings.warn("A custom warning", category=UserWarning)
-            warnings.warn("A runtime warning", category=RuntimeWarning)
-  
-  
-   def test_warning_stuff():
-       with pytest.warns(None) as raised_warnings:  # Record warnings
-           suppressed_warning_function()
-
-   # Check RuntimeWarnings are suppressed but other warnings are raised
-   assert len(raised_warnings.list) == 1
-   assert raised_warnings.list[0].category == UserWarning
