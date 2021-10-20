@@ -32,7 +32,7 @@
 4) You should now be able to access the metrics from `localhost:9090`
    * Create a dashboard using one of the metrics, e.g. `windows_cs_physical_memory_bytes`
 
-### Python metrics on Prometheus
+## Python metrics on Prometheus
 
 1) Create a basic python file with a metric, e.g. `request_processing_seconds` and `my_failures` 
     * ```python
