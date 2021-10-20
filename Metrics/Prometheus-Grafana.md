@@ -1,8 +1,8 @@
 # Prometheus Set up
 
 1) Download & Install the prometheus server from https://prometheus.io/download/
-  * This provides you with the dashboard to access prometeheus
-  * It will run on `localhost:9090`
+   * This provides you with the dashboard to access prometheus
+   * It will run on `localhost:9090`
 
 # Grafana Set up
 1) Install Grafana (Enterprise edition is ok)
