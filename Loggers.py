@@ -15,6 +15,14 @@ logger = logging.getLogger() # or getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 logger.addHandler(logging.StreamHandler())
 
+#Logging2 with formatter
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+handler = logging.StreamHandler()
+logger.addHandler(handler)
+logFormatter = logging.Formatter("[%(asctime)s] - %(name)s - %(levelname)s - %(message)s")
+handler.setFormatter(logFormatter)
+
 #Logging3 - Get all logs
 logger = logging.root # WORKS
 logger.setLevel(logging.DEBUG)
