@@ -1,5 +1,6 @@
 """Code relating to sending alerts (Using slack)."""
 import logging
+from typing import Union
 from urllib.error import URLError
 
 from slack_sdk.webhook import WebhookClient
@@ -18,9 +19,13 @@ class FakeWebhookClient:
     SLACK_WEBHOOK_URL = '' for testing on local / dev).
     Or if the slack URL fails for any reason."""
 
-    @staticmethod
-    def send(*args, **kwargs):
+    status_code = 200
+    body = "ok"
+
+    @classmethod
+    def send(cls, *args, **kwargs):
         logger.error(f"{NO_WEBHOOK_WARNING_MESSAGE} '{*args, kwargs}'")
+        return cls
 
 
 class SlackBot(metaclass=classproperty.meta):
@@ -38,28 +43,35 @@ class SlackBot(metaclass=classproperty.meta):
             "\n Directly do: `SlackBot.send_slack_message(...)`"
         )
 
+    @classmethod
+    def send_slack_message(cls, message_text: str):
+        try:
+            return cls._send_message(message_text)
+        except Exception as exc:
+            cls._use_fake_webhook_client(exc)
+            return cls._send_message(message_text)
+
     @classproperty
-    def webhook_client(cls):
+    def webhook_client(cls) -> Union[WebhookClient, FakeWebhookClient]:
         """Creates the Slack webhook client if called for the first time.
         Otherwise uses the existing Slack webhook client."""
         if not hasattr(cls, "_webhook_client"):
             cls._webhook_client = WebhookClient(SLACK_WEBHOOK_URL)  # create the client
-            try:
-                cls._webhook_client.send_dict({"test": "test"})  # test the url works
-            except Exception as exc:
-                failed_due_to_bad_url = isinstance(exc, URLError) or isinstance(exc, ValueError)
-                failing_msg = (
-                    f"Unable to setup slack bot due to {'an invalid SLACK_WEBHOOK_URL' if failed_due_to_bad_url else exc}."
-                    + "Falling back to logger."
-                )
-                failing_lvl = logging.WARNING if failed_due_to_bad_url else logging.ERROR
-                logger.log(failing_lvl, failing_msg)
-                cls._webhook_client = FakeWebhookClient()  # url doesn't work, use logger instead
-
         return cls._webhook_client
 
     @classmethod
-    def send_slack_message(cls, message_text):
+    def _use_fake_webhook_client(cls, exc):
+        failed_due_to_bad_url = any([isinstance(exc, err) for err in [URLError, ValueError, AssertionError]])
+        failing_msg = (
+                f"Unable to setup slack bot due to {'an invalid SLACK_WEBHOOK_URL' if failed_due_to_bad_url else str(exc)}."
+                + "Falling back to logger."
+        )
+        failing_lvl = logging.WARNING if failed_due_to_bad_url else logging.ERROR
+        logger.log(failing_lvl, failing_msg)
+        cls._webhook_client = FakeWebhookClient()
+
+    @classmethod
+    def _send_message(cls, message_text):
         response = cls.webhook_client.send(
             text="fallback",
             blocks=[
@@ -72,10 +84,11 @@ class SlackBot(metaclass=classproperty.meta):
                 }
             ],
         )
+        assert response.status_code == 200
+        assert response.body == "ok"
         return response
 
  #-------------------- tests ------------------#
-
 from unittest.mock import MagicMock
 
 import pytest
@@ -84,20 +97,37 @@ import pytest
 def test_send_slack_message_normal_behaviour(monkeypatch, cleanup_slackbot):
     """The patched version of sending a slack message
     i.e. if it actually used real credentials on a working server"""
-    mocked_slack_webhook = MagicMock()
+    mocked_slack_webhook, response = MagicMock(), MagicMock()
+    response.status_code = 200
+    response.body = "ok"
+    mocked_slack_webhook.return_value.send.return_value = response
+
     monkeypatch.setattr(slack_alerts, "WebhookClient", mocked_slack_webhook)
+    monkeypatch.setattr(slack_alerts, "SLACK_WEBHOOK_URL", "http://bob.com")
 
     SlackBot.send_slack_message("Hello World")
 
-    mocked_slack_webhook.assert_called_with(SLACK_WEBHOOK_URL)
+    mocked_slack_webhook.assert_called_with("http://bob.com")
     SlackBot.webhook_client.send.assert_called_once()
 
 
-def test_patched_slack_message(monkeypatch, cleanup_slackbot, caplog):
+@pytest.mark.parametrize(
+    "webhook_url",
+    [
+        "",
+        None,
+        1,
+        "bob",
+        "http://bob.com",
+        "https://hooks.slack.com/services/ABCDEFGHJ/KLMNOPQRSTU/VWXYZ1234567890ABCDEFGHI",
+    ],
+)
+def test_patched_slack_message(monkeypatch, cleanup_slackbot, caplog, webhook_url):
     """Using an invalid SLACK_WEBHOOK_URL causes the fallback mechanism to occur
     i.e. uses logging instead."""
-    monkeypatch.setattr(slack_alerts, "SLACK_WEBHOOK_URL", None)
+    monkeypatch.setattr(slack_alerts, "SLACK_WEBHOOK_URL", webhook_url)
     SlackBot.send_slack_message("Hello World!")
+
     assert issubclass(type(SlackBot._webhook_client), FakeWebhookClient)
     assert "Unable to setup slack bot due to an invalid SLACK_WEBHOOK_URL." in caplog.records[-2].message
 
@@ -109,3 +139,4 @@ def test_patched_slack_message(monkeypatch, cleanup_slackbot, caplog):
 def test_instantiating_slackbot_causes_error(cleanup_slackbot):
     with pytest.raises(TypeError):
         SlackBot()
+
