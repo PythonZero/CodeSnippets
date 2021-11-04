@@ -61,6 +61,7 @@ class classproperty(object):
                 f"Class {owner} does not extend from the required "
                 f"ClassPropertyMeta metaclass." + f"\nTo fix this, do ```"
                 f"\nclass {owner.__name__} (metaclass=classproperty.meta):"
+                f"\n      {' '*len(owner.__name__)}  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
                 f"\n     ... ```"
                 if owner
                 else ""
