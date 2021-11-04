@@ -23,7 +23,7 @@ class ClassPropertyMeta(type):
         return super().__setattr__(key, value)
 
 
-class ClassProperty(object):
+class classproperty(object):
     """
     Similar to @property but used on classes instead of instances.
     The only caveat being that your class must use the
@@ -59,9 +59,14 @@ class ClassProperty(object):
         if not issubclass(type(owner), ClassPropertyMeta):
             raise TypeError(
                 f"Class {owner} does not extend from the required "
-                f"ClassPropertyMeta metaclass"
+                f"ClassPropertyMeta metaclass." + f"\nTo fix this, do ```"
+                f"\nclass {owner.__name__} (metaclass=classproperty.meta):"
+                f"\n     ... ```"
+                if owner
+                else ""
             )
         return self.fget.__get__(None, owner)()
+
 
     def __set__(self, owner, value):
         if not self.fset:
