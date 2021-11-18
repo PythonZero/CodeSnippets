@@ -32,6 +32,7 @@ Functions in different Files
         return 5
 
     # File B:
+    import bar from A
     def add_two_numbers(x):
       return x + bar()
 
