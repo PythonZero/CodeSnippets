@@ -82,7 +82,6 @@ Immutable df but with optional single / multiple args
             dataframe in place, but rather creates a copy of the df.
             This means that the input df will be unchanged, but
             the output will be provided with an output df.
-            MUST take the argument (or kwarg) "df".
         
             :param df_arg_name: The names of the argument containing the dataframes.
                                 Can take a single name, or multiple names, e.g.
