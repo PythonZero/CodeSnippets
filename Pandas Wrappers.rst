@@ -115,7 +115,7 @@ Immutable df but with optional single / multiple args
                 df_arg_name = "df"
                 return outer_decorator(function)
         
-            # Error message was passed, call the outer decorator
+            # df was passed, call the outer decorator
             return outer_decorator
 
 Test:
