@@ -145,8 +145,9 @@ Test:
         
         
         def test_immutable_df_single_non_df_name():
-            """Checks if the original dataframe has not been modified"""
-        
+            """Checks if the original dataframe has not been modified
+               using an argument named something other than 'df'."""
+
             @immutable_df("pdf")
             def add_3_in_place(pdf, num, multiplier=3):
                 pdf["added_col"] = num * multiplier
@@ -167,7 +168,8 @@ Test:
         
         
         def test_immutable_df_multiple_non_df_names():
-            """Checks if the original dataframe has not been modified"""
+            """Checks if the original dataframe has not been modified
+               using multiple dataframes"""
         
             @immutable_df(["df1", "df2"])
             def add_3_in_place(df1, df2, num, multiplier=3):
