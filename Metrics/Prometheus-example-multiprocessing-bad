@@ -17,7 +17,7 @@ def _push_metrics(registry):
 
 def setup():
     registry = CollectorRegistry()
-    multiprocess.MultiProcessCollector(registry, path=r"C:\Users\ahmed.hammad\prometheus")
+    multiprocess.MultiProcessCollector(registry, path=r"C:\Users\bob\prometheus")
     counter = Counter(
         "custom_item_count_v2",
         "The description for custom item count v2",
