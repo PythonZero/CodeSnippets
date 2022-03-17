@@ -1,6 +1,29 @@
 General Python Functions
 ------------------------
 
+Multi level list comprehension (i.e. list flattening)
+====================================================
+
+1. Start with writing it with multiple for loops, e.g. 
+
+      .. code-block:: python
+
+       lst_a = [['A'], ['B'], ['C', 'D']]
+       for lst in lst_a:
+           for item in lst:
+               item
+
+2. Just back-space the colons, and put the `item` at the beginning
+
+    .. code-block:: python
+
+        # step 1:
+        for lst in lst_a for item in lst: # delete the colons
+            item  # put at the beginning
+        # step 2:
+        flattened_list = [item for lst in lst_a for item in lst]
+
+
 Time some code
 ===============
 
