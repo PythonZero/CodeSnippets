@@ -50,7 +50,8 @@ class DelayedCounter:
         >>> push_to_gateway(PROMETHEUS_GATEWAY, registry=registry, job="algo")
 
 
-        :param counter: Set-up a counter
+        :param counter: The counter to (eventually) create the calls with - once
+                        outside of the context manager / with statement.
         """
         self.counter: Counter = counter
 
