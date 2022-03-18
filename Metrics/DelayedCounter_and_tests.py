@@ -68,7 +68,6 @@ class DelayedCounter:
         """Exit the context manager
         1. Makes the (delayed) calls to the real counter
         2. Does the cleanup for the shared list"""
-        print(len(self._shared_list))
         self.call()
         self._cleanup_shared_list(exc_type, exc_val, exc_tb)
 
