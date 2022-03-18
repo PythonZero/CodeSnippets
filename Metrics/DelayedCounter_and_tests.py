@@ -1,5 +1,6 @@
 """Code relating to Monitoring (i.e. Prometheus)"""
 from multiprocessing import Manager
+from multiprocessing.managers import SyncManager
 from typing import Dict, List
 
 from prometheus_client import Counter
@@ -7,9 +8,9 @@ from prometheus_client import Counter
 
 class DelayedCounter:
     _shared_list: List[Dict[str, str]]  # the pending calls
-    _manager: Manager
+    _manager: SyncManager
 
-    def __init__(self,  counter: Counter):
+    def __init__(self,  counter):
         """DelayedCounter should be used when you need a counter in a multiprocess call.
         It records the function that you want to call, and will call it after the
         multiprocessing is complete.
