@@ -19,4 +19,5 @@
     * Select Name - Groupby
     * Select Platform - Groupby
     * Select Value - Total
+    * Leave the others "Ignored" (check the table should only have 4 columns)
 4. **Sort by** - must go fourth
