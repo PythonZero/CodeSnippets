@@ -12,7 +12,7 @@
         2. Press the eye (hide/view) to see the effect
         3. Use the table view to check there's a Time columm & correct values
 
-1. **Labels to Fields** - keep the "Value field name" __EMPTY__
+1. **Labels to Fields** - keep the `Value field name` __EMPTY__
 2. **Merge** - must go second
 3. **Group by** - must go third
     * Select Time - Groupby
