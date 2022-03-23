@@ -39,6 +39,9 @@
 ## Using Statsd
 * Unlike Prometheus, can't go to the `/metrics` endpoint or any url for statsd access 
 * Use the Graphite explorer to see the data (or Grafana)
+  * Untagged Metrics live in `stats/<counter_name>`
+  * Tagged metrics live in `Metrics/_tagged/<3 digit folder>/<3 digit folder>/<random hash>`
+     * Older versions of Graphite have them in `stats/statsd/<counter_name>` (I think)   
 
 ## Python Statsd
 ```python
@@ -49,8 +52,8 @@ STATSD_GATEWAY_PORT = 8125
 
 def inc_counter(type, exception):
     c = statsd.StatsClient(STATSD_GATEWAY_URL, STATSD_GATEWAY_PORT)
-    c.incr(f'algo_item_count_total_v2;algo=pe;type={type};exception={exception}')  # tags are semi-colon separated (or comma separated)
-    c.incr(f'algo_item_count_total_v2bruh_untagged')  # has no tags
+    c.incr(f'item_count_total_v2;algo=pe;type={type};exception={exception}')  # tags are semi-colon separated (or comma separated)
+    c.incr(f'item_count_total_v2bruh_untagged')  # has no tags
 
 if __name__ == '__main__':
     for _ in range(10):
