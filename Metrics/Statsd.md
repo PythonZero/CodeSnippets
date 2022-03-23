@@ -41,7 +41,7 @@
 * Use the Graphite explorer to see the data (or Grafana)
 
 ## Python Statsd
-* ```python
+```python
 import statsd
 
 STATSD_GATEWAY_URL = "localhost"
