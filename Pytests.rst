@@ -327,8 +327,25 @@ Mocking Datetime
     # change datetime.now()'s date
     monkeypatch.setattr("root.folder.file1.datetime", MockedDatetime)
 
-    
 
+(Magic)Mocking return values or instances of classes
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. code-block:: python
+
+    # Use MagicMock().<method>.return_value to get the value / instance
+
+    def inc_counter():
+        c = statsd.StatsClient(ARG1, ARG2)
+        c.incr(ARG3)
+    
+    def test_inc_counter(monkeypatch):
+        mocked_statsd = MagicMock()
+        monkeypatch.setattr(inc_counters_file_name, "statsd", mocked_statsd)
+        inc_counter()
+        mocked_statsd.StatsClient.assert_called_once_with(ARG1, ARG2)
+        mocked_statsd.StatsClient.return_value.incr.assert_called_once_with(ARG3)
+
+   
 
 Ignoring doctests
 ==================================
