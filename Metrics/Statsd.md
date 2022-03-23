@@ -1,3 +1,4 @@
+# TOC
 - [Installing statsd](#installing-statsd)
   * [Using Statsd](#using-statsd)
   * [Python Statsd](#python-statsd)
