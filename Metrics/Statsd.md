@@ -1,3 +1,8 @@
+- [Installing statsd](#installing-statsd)
+  * [Using Statsd](#using-statsd)
+  * [Python Statsd](#python-statsd)
+
+
 # Installing statsd
 
 * Statsd is an alternative to prometheus 
