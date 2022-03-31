@@ -31,7 +31,7 @@
 * Get all values of tag by doing `label_values(algo)`
 * Example Variable setting:
   * Name - `algo_name`  # usage `$algo_name` in graphs / text
-  * Label - `algo name`
+  * Label - `Algo Name`
   * Description - `Some text`
   * Data Source - `Prometheus` or `database`
   * Refresh - `On dashboard Load`
