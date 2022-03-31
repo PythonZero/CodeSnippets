@@ -3,6 +3,11 @@
 ## Query tab
 * a basic `metric_name` is sufficient 
   * don't need to do `sum(metric_name[5m])` or `metric_name{label1="value",label2="value2"}`
+### Wildcard by name
+* `topk(10, {__name__=~".*name_to_search.*"})` 
+  * searches using regex anything that matches `*name_to_search*`
+  * Returns each of the lines as separate tables
+  * this query only shows the top `10` lines
 
 ## Transform tab
 * Say we want to group by (time, name, platform) - and we have 10 different prometheus labels
