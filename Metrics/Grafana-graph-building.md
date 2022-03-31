@@ -26,3 +26,14 @@
     * Select Value - Total
     * Leave the others "Ignored" (check the table should only have 4 columns)
 4. **Sort by** - must go fourth
+
+# Dashboard Variables
+* Get all values of tag by doing `label_values(algo)`
+* Example Variable setting:
+  * Name - `algo_name`  # usage `$algo_name` in graphs / text
+  * Label - `algo name`
+  * Description - `Some text`
+  * Data Source - `Prometheus` or `database`
+  * Refresh - `On dashboard Load`
+  * Query - `label_values(algo)` or `SELECT algo FROM db.table`
+  * Sort - `Alphabetical (case-insensitive)`
