@@ -39,8 +39,10 @@
   * Sort - `Alphabetical (case-insensitive)`
 
 # Dashboard Styling
-* Colour a table
- * Overrides 
-   * Fields with matching regex `.*` (colour all cells) or `.*Failures.*` - to only colour those cells with Failures in it
-   * Cell display Mode - `color background (solid)` 
-   * Standard Options -> Color scheme -> Single Color -> Then pick the colour next to it
+* Colour a table ->  Overrides 
+    * Fields with matching regex `.*` (colour all cells) or `.*Failures.*` - to only colour those cells with Failures in it
+    * Cell display Mode - `color background (solid)` 
+    * Standard Options -> Color scheme -> Single Color -> Then pick the colour next to it
+* Percentage Column -> Overrides
+    * Fields matching regex `.*%.*`
+    * Standard Options > Unit -> `Percent (0-100)`
