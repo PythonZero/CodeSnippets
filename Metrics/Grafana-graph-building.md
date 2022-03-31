@@ -8,6 +8,10 @@
   * searches using regex anything that matches `*name_to_search*`
   * Returns each of the lines as separate tables
   * this query only shows the top `10` lines
+### One of values
+* `node_load1{instance=~"host1|host2|host3"}`
+  * For variables do: `node_load1{instance=~"${instance_var:pipe}" }`
+    * This works for prometheus (it pipe separates the labels, e.g. "host1|host2|host3")
 
 ## Transform tab
 * Say we want to group by (time, name, platform) - and we have 10 different prometheus labels
