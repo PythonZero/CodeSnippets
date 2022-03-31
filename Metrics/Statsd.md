@@ -58,7 +58,7 @@ STATSD_GATEWAY_PORT = 8125
 
 def inc_counter(type, exception):
     c = statsd.StatsClient(STATSD_GATEWAY_URL, STATSD_GATEWAY_PORT)
-    c.incr(f'item_count_total_v2;algo=pe;type={type};exception={exception}')  # tags are semi-colon separated (or comma separated)
+    c.incr(f'item_count_total_v2;algo=pe;type={type};exception={exception}')  # tags are semi-colon separated (comma separated didn't work)
     c.incr(f'item_count_total_v2bruh_untagged')  # has no tags
 
 if __name__ == '__main__':
