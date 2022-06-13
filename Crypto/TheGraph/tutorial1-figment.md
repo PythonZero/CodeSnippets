@@ -118,4 +118,17 @@ yarn codegen
    2. `yarn deploy-local`  # this now hosts your graphql webserver
 
 4. Access your `deploy-local` from `http://localhost:8000/subgraphs/name/punks`
-
+5. Example query:
+    ```
+    query {
+      punks(first: 10, orderBy: value, orderDirection: desc) {
+        id
+        index
+        owner {
+          id
+        }
+        value
+        date
+      }
+    }
+    ```
