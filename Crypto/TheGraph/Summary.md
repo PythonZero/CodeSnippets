@@ -22,23 +22,24 @@
 * **IPFS** = InterPlanetary FileSystem. A distributed filesystem to store/access info
 
 ## Graph Node Setup Summary
+(see [here](https://github.com/PythonZero/CodeSnippets/blob/master/Crypto/TheGraph/tutorial1-figment.md) for more details)
  
  1. Use an [**ethereum node** provider](https://ethereum.org/en/developers/docs/nodes-and-clients/nodes-as-a-service/#popular-node-services) (i.e. alchemy)
  2. Run your **graph node** locally via the graph-cli (docker-compose up)
- 3. Create a subgraph for your smart contract (cryptopunks)
+ 3. **Create** a **subgraph** for your smart contract (cryptopunks)
     * `graph init` (by `yarn global add @graphprotocol/graph-cli`)
     * Creates the manifest (`.yaml`), ABI, schema (`.graphql`) , mappings (`.ts`)
-4. Modify the manifest `subgraph.yaml`
+4. **Modify** the **manifest** `subgraph.yaml`
     * i.e. specify startBlock/entities/eventHandlers
-5. Modify the `schema.graphql`
+5. Modify the **entities** `schema.graphql`
     * specifies entities and relations (1:1, 1:many)
-6. Compile the `.graphql` -> `.ts`
+6. **Compile** the **entities** `.graphql` -> `.ts`
    * `cd punks; yarn codegen`
 7. Map **events** to **entities* `src/mapping.ts`
-8. Deploy the subgraph
+8. **Deploy** the **subgraph**
    * `yarn create-local`
    * `yarn deploy-local` -> http://localhost:8000/subgraphs/name/punks
-9. Query the graphql from      ↑
+9. **Query** the **subgraph** using **graphql** from      ↑
 
 ## Users
 1. **Curators** - subgraph developers decide what to index
