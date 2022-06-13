@@ -23,7 +23,7 @@
 
 ## Graph Node Setup Summary
  
- 1. Use an **ethereum node** provider (i.e. alchemy)
+ 1. Use an [**ethereum node** provider](https://ethereum.org/en/developers/docs/nodes-and-clients/nodes-as-a-service/#popular-node-services) (i.e. alchemy)
  2. Run your **graph node** locally via the graph-cli (docker-compose up)
  3. Create a subgraph for your smart contract (cryptopunks)
     * `graph init` (by `yarn global add @graphprotocol/graph-cli`)
