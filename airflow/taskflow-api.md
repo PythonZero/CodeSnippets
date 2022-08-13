@@ -29,7 +29,8 @@ def s3_file_generator_example(name):
     }
     ```
     """
-
+    
+    # NOTE: you can also put the entire `create_file` function outside as a global function (& not a nested function)
     @task(multiple_outputs=True)
     def create_file(name):
         """
