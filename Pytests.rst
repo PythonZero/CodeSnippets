@@ -326,6 +326,16 @@ Mocking Datetime
 
     # change datetime.now()'s date
     monkeypatch.setattr("root.folder.file1.datetime", MockedDatetime)
+    
+    
+If it is a global variable, then just mock the variable itself
+ 
+.. code-block:: python
+     
+     INGESTION_TS = datetime.utcnow().isoformat()
+    
+     def test_something(monkeypatch):
+         monkeypatch.setattr("root.folder.file1.INGESTION_TS", datetime(2021, 5, 2))
 
 
 (Magic)Mocking return values or instances of classes
