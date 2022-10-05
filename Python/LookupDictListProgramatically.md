@@ -26,7 +26,7 @@ my_dict_lookup_rules = {
 def lookup(
     container: Container,
     lookup_rule: str,
-    set=False,
+    set_=False,
     value=None,
     lookup_rules: Dict[str, Tuple[Callable, Union[str, int]]] = my_dict_lookup_rules,
 ):
@@ -39,8 +39,8 @@ def lookup(
         e.g. to access x[1][2]["a"][3], the rule should be
         { "rule1": (lambda x: x[1][2]["a"], 3)}
         * NOTE: the last value must be separated as a 2nd item in the tuple
-    :param set: If false, only gets the item.
-                *WARNING* If True, replaces (or adds) the item.
+    :param set_: If false, only gets the item.
+                *WARNING* If True, sets the item (replaces or adds).
     :param value: The value that will be set. This is only used if set=True
     :return: The value get/set
     """
@@ -51,17 +51,17 @@ def lookup(
         )
     container_getter, last_index = lookup_rules.get(lookup_rule)
 
-    if set:
+    if set_:
         container_getter(container).__setitem__(last_index, value)
 
     return container_getter(container)[last_index]
-
 
 
 ```
 
 Tests
 ```python
+
 my_dict = {
     "x": {
         "a": [1, 2, 3],
@@ -106,15 +106,13 @@ def test_lookup_set():
     # set a dict
     get_value = lookup(my_dict, "rule1")
     assert get_value != 13  # check it's not changed
-    lookup(my_dict, "rule1", set=True, value=13)
-    set_value = lookup(my_dict, "rule1")
+    set_value = lookup(my_dict, "rule1", set_=True, value=13)
     assert set_value == 13
 
     # set a list
     get_value2 = lookup(my_dict, "rule2")
     assert get_value2 != 14  # check it's not changed
-    lookup(my_dict, "rule2", set=True, value=14)
-    set_value2 = lookup(my_dict, "rule2")
+    set_value2 = lookup(my_dict, "rule2", set_=True, value=14)
     assert set_value2 == 14
 
 ```
