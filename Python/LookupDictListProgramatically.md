@@ -3,7 +3,8 @@
    * Say you had a complicated dictionary (or list), and wanted to find a value that is nested deep, e.g.
      * `my_dict = {"x": {"a": [1, 2, 3],"b": [2, 1, 3],"c": [1, 4, 5], "d": {"e": {"f": [{"gasdasd": 0}]}},}}`
    * You want to repeatedly getting / setting `my_dict["x"]["d"]["e"]["f"]`
-   * You don't want to keep typing the full slice
+   * You don't want to keep typing the full slice `["x"]["d"]["e"]["f"]` each time, and store it somewhere
+   
 ## Solution
 ```python
 from typing import Container, Callable, Dict, Union, Tuple
