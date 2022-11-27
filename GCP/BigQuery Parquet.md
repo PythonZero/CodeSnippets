@@ -54,9 +54,12 @@ gs://BUCKET/folder1/file.parquet/date=2022-05-26/key=value/part0.parquet
 1. Create Table From -> Google Cloud Storage
 2. File path, e.g. `BUCKET/folder1/file.parquet/*.parquet  # as there's metadata etc files`
 3. **Enable** Source Data Partitioning
-4. Select source URI prefix - `BUCKET/folder1/file.parquet/  # this will automatically get the key=values and partition based on them`
-5. **Disable** Require partition filter
-6. Partition inference mode - **Automtically infer types**
-7. Destination
+4. Select source URI prefix - `BUCKET/folder1/file.parquet/`  _# this will automatically get the key=values and partition based on them_`
+    * **OR add** `/bigstore/` to the prefix -> `/bigstore/BUCKET/folder1/file.parquet/`
+       * If you get the error: "Failed to create table: Directory URI `/bigstore/BUCKET/folder1/file.parquet/ds=2022-05-26/` does not contain path to table (`BUCKET/folder1/file.parquet`) as a prefix, which is a requirement." 
+6. **Disable** Require partition filter
+7. Partition inference mode - **Automtically infer types**
+8. Destination
   a. Project, Dataset, Table
   b. **Table Type** - External Table
+9. Schema -> Autodetect
