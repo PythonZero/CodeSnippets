@@ -8,8 +8,9 @@ import warnings
 
 def suppressed_warning_function():
      with warnings.catch_warnings():
-         # warnings.simplefilter("ignore") # this alone captures all warnings.
+         # warnings.simplefilter("ignore")  # this alone ignores all warnings.
          warnings.simplefilter(action='ignore', category=RuntimeWarning)  # this filters to only capture RuntimeWarning, other warnings are still raised
+         # warnings.simplefilter("error")  # this raises an exception on warning (catch it with `except UserWarning as exc:` or `except Warning as exc:`
          warnings.warn("A custom warning", category=UserWarning)
          warnings.warn("A runtime warning", category=RuntimeWarning)
 
