@@ -18,9 +18,9 @@ def test_warning_stuff():
     with pytest.warns(None) as raised_warnings:  # Record warnings
         suppressed_warning_function()
 
-# Check RuntimeWarnings are suppressed but other warnings are raised
-assert len(raised_warnings.list) == 1
-assert raised_warnings.list[0].category == UserWarning
+    # Check RuntimeWarnings are suppressed but other warnings are raised
+    assert len(raised_warnings.list) == 1
+    assert raised_warnings.list[0].category == UserWarning
 ```
 
 ## Context Manager
