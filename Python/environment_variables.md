@@ -25,3 +25,14 @@ GITHUB_USER = env("GITHUB_USER")  # => 'sloria'
 SECRET = env("SECRET")  # => raises error if not set
 
 ```
+
+## Using it in Code
+```
+class EnvVariables:
+    s3_bucket_name: str
+
+    def __init__(self):
+        self.env = Env()
+        self.env.read_env()  # read .env file, if it exists
+        self.s3_bucket_name = self.env.str("S3_BUCKET_NAME")  # or add a default value
+```
