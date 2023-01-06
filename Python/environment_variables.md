@@ -20,7 +20,7 @@ class EnvVariables:
     def __init__(self):
         self.env = Env()
         self.env.read_env()  # read .env file, if it exists
-        self.s3_bucket_name = self.env.str("S3_BUCKET_NAME")  # or add a default value
+        self.s3_bucket_name = self.env.str("S3_BUCKET_NAME")  # no default => will error if env var not exists
 ```
 
 
