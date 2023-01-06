@@ -9,7 +9,7 @@ If you want to timeout a piece of code you have 2 options:
 ```python
 import asyncio
 async def func_to_timeout():
-    # simulate a long-running function by sleeping for 20 seconds
+    # simulate a long-running function
     await asyncio.sleep(5)
     print("Function completed")
 try:
