@@ -1,5 +1,10 @@
 ## Use environs
 
+https://pypi.org/project/environs/
+```cmd
+pip install environs
+```
+
 ```python
 from environs import Env
 
