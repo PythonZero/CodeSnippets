@@ -1,4 +1,30 @@
-## Use environs
+## Quickstart
+```python
+from environs import Env
+
+env = Env()
+env.read_env()    # read .env file, if it exists
+
+# default value (& casting)
+S3_BUCKET_NAME = env.str("S3_BUCKET_NAME", "default-bucket-name") 
+
+```
+
+## Using it in Code
+```python
+from environs import Env
+
+class EnvVariables:
+    s3_bucket_name: str
+
+    def __init__(self):
+        self.env = Env()
+        self.env.read_env()  # read .env file, if it exists
+        self.s3_bucket_name = self.env.str("S3_BUCKET_NAME")  # or add a default value
+```
+
+
+## More examples
 
 https://pypi.org/project/environs/
 ```cmd
@@ -26,13 +52,3 @@ SECRET = env("SECRET")  # => raises error if not set
 
 ```
 
-## Using it in Code
-```
-class EnvVariables:
-    s3_bucket_name: str
-
-    def __init__(self):
-        self.env = Env()
-        self.env.read_env()  # read .env file, if it exists
-        self.s3_bucket_name = self.env.str("S3_BUCKET_NAME")  # or add a default value
-```
