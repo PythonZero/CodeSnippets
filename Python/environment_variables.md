@@ -110,6 +110,8 @@ class EnvVariables(metaclass=EnvVarMeta):
     # Use them in the code
     my_func(EnvVariables.var1)
     my_func2(EnvVariables.var2)
+    my_func3(EnvVariables.str("var3"))  # can also pass it directly in
+
     ```
 
     See https://pypi.org/project/environs/ for all env.<method> methods.
