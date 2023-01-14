@@ -7,10 +7,7 @@
 class MyClassMeta(type):
     def __getattr__(cls, name):
         """Overrides the __getattr__ if being access from the class (Not instance)"""
-        if name in cls.__dict__:
-            return cls.__dict__[name]
-        else:
-            return "Overrided 1"
+        return "Overrided 1"
 
 
 class MyClass(metaclass=EnvVarMeta):
@@ -19,10 +16,7 @@ class MyClass(metaclass=EnvVarMeta):
     # z not defined
     def __getattr__(self, name):
         """Overrides the __getattr__ if being access from an instance"""
-        if name in self.__dict__:
-            return self.__dict__[name]
-        else:
-            return "Overrided 2"
+        return "Overrided 2"
 
 
 if __name__ == "__main__":
