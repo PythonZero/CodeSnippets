@@ -67,11 +67,6 @@ class EnvVarMeta(type):
         cls.env.read_env()  # read .env file, if it exists
         cls.vars = {}
 
-    def clear(cls):
-        for var in cls.vars.keys():
-            delattr(cls, var)
-        cls.vars = {}
-
     def path(cls, path, override=False, *args, **kwargs):
         """Reads env from a path.
 
@@ -126,11 +121,14 @@ class EnvVariables(metaclass=EnvVarMeta):
     ```
 
     See https://pypi.org/project/environs/ for all env.<method> methods.
+
+    See EnvVariables.vars to see the env variables that have been accessed thus far.
     """
 
     def __getattr__(self, name):
         """Overrides the __getattr__ if being access from an instance"""
         return getattr(type(self), name)
+
 ```
 
 ### .env file
