@@ -65,14 +65,25 @@ class EnvVarMeta(type):
         super().__init__(cls)
         cls.env = Env()
         cls.env.read_env()  # read .env file, if it exists
+        cls.vars = {}
 
-    def path(cls, path):
-        cls.env.read_env(path=path)
+    def clear(cls):
+        for var in cls.vars.keys():
+            delattr(cls, var)
+        cls.vars = {}
+
+    def path(cls, path, override=False, *args, **kwargs):
+        """Reads env from a path.
+
+        :param path: path/to/the/.env file (e.g. `file1.env` or `.env`)
+        :param override - if True, then it overrides any existing env variables.
+                          Otherwise, any existing env variables take precedent."""
+        cls.env.read_env(path=path, override=override, *args, **kwargs)
 
     def __getattr__(cls, name):
         if hasattr(cls.env, name):
             # Allows usage of e.g. EnvVariables.str("x") -> loads the env variable and saves it as EnvVariables.x
-            return lambda env_name: cls.save_using_env(name, env_name)
+            return lambda env_name, *a, **kw: cls.save_using_env(name, env_name, *a, **kw)
         raise KeyError(
             f"'{name}' not found. Ensure you've loaded the EnvVar by doing "
             f"'{cls.__name__}.str({name})'  or"
@@ -81,9 +92,10 @@ class EnvVarMeta(type):
             f"for all Supported types "
         )
 
-    def save_using_env(cls, func, env_name):
-        env_value = getattr(cls.env, func)(env_name)
+    def save_using_env(cls, func, env_name, *args, **kwargs):
+        env_value = getattr(cls.env, func)(env_name, *args, **kwargs)
         setattr(cls, env_name, env_value)
+        cls.vars[env_value] = env_value
         return env_value
 
 
@@ -111,7 +123,6 @@ class EnvVariables(metaclass=EnvVarMeta):
     my_func(EnvVariables.var1)
     my_func2(EnvVariables.var2)
     my_func3(EnvVariables.str("var3"))  # can also pass it directly in
-
     ```
 
     See https://pypi.org/project/environs/ for all env.<method> methods.
@@ -141,7 +152,7 @@ ROOT_DIR = os.path.abspath(os.path.join(__file__, "..", ".env"))
 
 
 def test_env_vars__reassigning_type():
-    EnvVariables.path(ROOT_DIR)
+    EnvVariables.path(ROOT_DIR, override=True)
     EnvVariables.str("X")
     assert EnvVariables.X == "1"
     EnvVariables.int("X")
@@ -155,7 +166,17 @@ def test_env_vars__env_functions():
     assert EnvVariables.str("Z") == "whatsup_bro!"
 
 
+def test_env_vars__with_default():
+    assert EnvVariables.bool("SOMETHING_THAT_DOESNT_EXIST2", False) is False
+    assert (
+        EnvVariables.str("ANOTHER_THING_I_MADE_UP", "default_value") == "default_value"
+    )
+    assert EnvVariables.str("X", "do_not_use_default") == "1"
+
+
 def test_env_vars_error_if_not_loaded():
-    with pytest.raises(KeyError, match="'SOMETHING_THAT_DOESNT_EXIST' not found. Ensure .*"):
+    with pytest.raises(
+        KeyError, match="'SOMETHING_THAT_DOESNT_EXIST' not found. Ensure .*"
+    ):
         EnvVariables.SOMETHING_THAT_DOESNT_EXIST
 ```
