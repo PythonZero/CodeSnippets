@@ -8,6 +8,11 @@ Add plotly .iplot() to a dataframe
 
     import cufflinks as cf
     cf.set_config_file(offline=True, world_readable=False )
+
+    # For pycharm only:
+    import plotly.io as pio
+    pio.renderers.default = "browser"
+
     df.iplot()
 
 
