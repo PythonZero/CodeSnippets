@@ -1,4 +1,5 @@
 # Kubernetes commands
+* Listing, deleting jobs and pods
 
 ## Pods Summary
 1. Popeye
@@ -24,7 +25,8 @@ kubectl get all -n default -o custom-columns="RESOURCE:.kind,NAME:.metadata.name
 
 ### Deleting the pods which failed
 
-You may want to run this multiple times to make it even faster
+You may want to run this multiple times to make it even faster 
+**Powershell**
 ```powershell
 
 kubectl get pods -n default -o custom-columns="NAME:.metadata.name,REASON:.status.containerStatuses[].state.waiting.reason" | ForEach-Object {
@@ -35,6 +37,8 @@ kubectl get pods -n default -o custom-columns="NAME:.metadata.name,REASON:.statu
     if ($reason -eq "ImagePullBackOff") {
         Write-Host "Deleting pod: $name"
         Start-Process -NoNewWindow -FilePath kubectl -ArgumentList "delete", "pod", $name, "-n", "default"
+        # Force kill:
+        # Start-Process -NoNewWindow -FilePath kubectl -ArgumentList "delete", "pod", $name, "-n", "default"  --grace-period=0 --force
     }
 }
 
