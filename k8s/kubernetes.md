@@ -29,7 +29,7 @@ kubectl get pods -n default -o custom-columns="NAME:.metadata.name,REASON:.statu
 
     if ($reason -eq "ImagePullBackOff") {
         Write-Host "Deleting pod: $name"
-        kubectl delete pod $name -n default
+        Start-Process -NoNewWindow -FilePath kubectl -ArgumentList "delete", "pod", $name, "-n", "default"
     }
 }
 
