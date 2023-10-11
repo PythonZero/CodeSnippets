@@ -29,17 +29,19 @@ You may want to run this multiple times to make it even faster
 **Powershell**
 ```powershell
 
-kubectl get pods -n default -o custom-columns="NAME:.metadata.name,REASON:.status.containerStatuses[].state.waiting.reason" | ForEach-Object {
+kubectl get pods -n default -o custom-columns="NAME:.metadata.name,JOB_NAME:.metadata.ownerReferences[0].name,REASON:.status.containerStatuses[].state.waiting.reason" | ForEach-Object {
     $columns = $_ -split '\s+'
     $name = $columns[0]
-    $reason = $columns[1]
+    $jobName = $columns[1]
+    $reason = $columns[2]
 
     if ($reason -eq "ImagePullBackOff") {
         Write-Host "Deleting pod: $name"
         Start-Process -NoNewWindow -FilePath kubectl -ArgumentList "delete", "pod", $name, "-n", "default"
-        # Force kill:
-        # Start-Process -NoNewWindow -FilePath kubectl -ArgumentList "delete", "pod", $name, "-n", "default"  --grace-period=0 --force
+        Write-Host "Deleting job: $jobName"
+        Start-Process -NoNewWindow -FilePath kubectl -ArgumentList "delete", "job", $jobName, "-n", "default"
     }
 }
+
 
 ```
