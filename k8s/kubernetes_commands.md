@@ -43,5 +43,8 @@ kubectl get pods -n default -o custom-columns="NAME:.metadata.name,JOB_NAME:.met
     }
 }
 
+# Check pod count
+kubectl get pods -n your-namespace --no-headers | wc -l
+
 
 ```
