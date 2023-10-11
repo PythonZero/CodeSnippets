@@ -1,11 +1,10 @@
-Running code in parallel (in jupyter notebook)
-++++++++++++++++++++++++++++++++++++++++++++++
+# Running code in parallel (in jupyter notebook)
 
 - Creates a new thread to run & get the result, giving the thread the queue object.
 - Once the result is gotten, the result is put into the queue, ready to be extracted 
   by the main thread.
 
-.. code-block :: python
+```python
 
     import queue
     import threading
@@ -29,3 +28,12 @@ Running code in parallel (in jupyter notebook)
     
     >>> async_accounts = async_load_sql("""SELECT * FROM accounts """)
     >>> accounts = async_accounts.get()  # run this when "Done!" is printed
+```
+
+# Asyncio
+
+* Wherever the code is slow (i.e. uses I/O), it should be changed to use await
+  * e.g. it takes 1 second for a `subprocess` command to run (using `cmd / terminal`) -> use the async version `asyncio.create_subprocess_exec)
+  * It will switch contexts until it's ready to come back
+* Whenever you DON'T use await, it becomes blocking
+* Whenever you DO use await, the thread becomes unblocked and can be picked up somewhere else and continue running
