@@ -48,3 +48,24 @@ kubectl get pods -n your-namespace --no-headers | wc -l
 
 
 ```
+
+## Deleting the pods which completed
+
+You may want to run this to free up jobs
+
+```powershell
+
+kubectl get pods -n default -o custom-columns="NAME:.metadata.name,PHASE:.status.phase,JOB_NAME:.metadata.ownerReferences[0].name" | ForEach-Object {
+    $columns = $_ -split '\s+'
+    $name = $columns[0]
+    $phase = $columns[1]
+    $jobName = $columns[2]
+
+    if ($phase -eq "Succeeded") {
+        Write-Host "Deleting pod: $name"
+        Start-Process -NoNewWindow -FilePath kubectl -ArgumentList "delete", "pod", $name, "-n", "default"
+        Write-Host "Deleting job: $jobName"
+        Start-Process -NoNewWindow -FilePath kubectl -ArgumentList "delete", "job", $jobName, "-n", "default"
+    }
+}
+```
